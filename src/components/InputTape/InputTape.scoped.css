@@ -1,0 +1,13 @@
+.tape {
+  color: red;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid pink;
+  background-color: green;
+}
+
+.remove {
+}
+
+.tag {
+}
