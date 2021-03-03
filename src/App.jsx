@@ -4,7 +4,7 @@ import "./App.scoped.css";
 
 function App() {
   const [input, setInput] = useState([
-    { id: 1, text: "Size M" },
+    { id: 1, text: "ขนาดกลาง" },
     { id: 2, text: "บราวนี่" },
     { id: 3, text: "กล้วย" },
     { id: 4, text: "หวานปกติ" },

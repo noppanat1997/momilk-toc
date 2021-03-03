@@ -57,7 +57,7 @@
   height: 1.25rem;
   color: #666666;
   border: none;
-  padding-left: 15px;
+  margin-left: 15px;
   cursor: pointer;
   transition: all ease-in-out 150ms;
 }
