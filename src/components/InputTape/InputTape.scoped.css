@@ -80,15 +80,22 @@
   top: 7.5px;
   right: 10px;
   border: none;
-  cursor: pointer;
   transition: all ease-in-out 150ms;
   outline: none;
+  cursor: pointer;
 }
 
 .clear:hover {
   background-color: #ff3f3f;
   color: white;
   box-shadow: 0 1px 8px 0 #ff3f3f66;
+}
+
+.clear:disabled {
+  background-color: #f3f3f3;
+  color: #8f8f8f;
+  box-shadow: 0 0 0 0 transparent;
+  cursor: default;
 }
 
 .clear svg {

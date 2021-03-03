@@ -34,6 +34,7 @@ function InputTape({ data, setData }) {
         onClick={() => {
           setData([]);
         }}
+        disabled={data.length === 0 && true}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
