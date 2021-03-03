@@ -1,0 +1,29 @@
+.state {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: 5px solid rgb(4, 255, 192);
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.state p {
+  color: #272727;
+}
+
+.layer-1 {
+}
+
+.layer-2 {
+  margin-left: 5rem;
+}
+
+.layer-2:before {
+  content: '';
+  width: 100%;
+  border: 2px solid rgb(4, 255, 192);
+  position: absolute;
+  z-index: -1;
+}
