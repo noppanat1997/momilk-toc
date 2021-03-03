@@ -94,7 +94,11 @@ function initDiagram() {
       go.Shape, // the link shape
       { strokeWidth: 1.5 },
       new go.Binding('stroke', 'progress', function(progress) {
-        return progress ? '#52ce60' /* green */ : 'black';
+        switch (progress) {
+          case 'red': return '#FF0000'
+          case 'green': return '#52ce60'
+          case 'black': return '#000000'
+        };
       }),
       new go.Binding('strokeWidth', 'progress', function(progress) {
         return progress ? 2.5 : 1.5;
@@ -104,7 +108,11 @@ function initDiagram() {
       go.Shape, // the arrowhead
       { toArrow: 'standard', stroke: null },
       new go.Binding('fill', 'progress', function(progress) {
-        return progress ? '#52ce60' /* green */ : 'black';
+        switch (progress) {
+          case 'red': return '#FF0000'
+          case 'green': return '#52ce60'
+          case 'black': return '#000000'
+        };
       }),
     ),
     $(
@@ -161,11 +169,11 @@ function StateChartDemo() {
           { key: 3, text: 'Delta', color: 'pink', loc: '150 150' },
         ]}
         linkDataArray={[
-          { key: -1, from: 0, to: 1, progress: 'true', text: 'Browse' },
-          { key: -2, from: 0, to: 2, progress: 'true', text: 'Browse' },
-          { key: -3, from: 1, to: 1, progress: 'true', text: 'Browse' },
-          { key: -4, from: 2, to: 3, progress: 'true', text: 'Browse' },
-          { key: -5, from: 3, to: 0, progress: 'true', text: 'Browse' },
+          { key: -1, from: 0, to: 1, progress: 'red', text: 'Browse' },
+          { key: -2, from: 0, to: 2, progress: 'black', text: 'Browse' },
+          { key: -3, from: 1, to: 1, progress: 'green', text: 'Browse' },
+          { key: -4, from: 2, to: 3, progress: 'green', text: 'Browse' },
+          { key: -5, from: 3, to: 0, progress: 'red', text: 'Use search bar' },
         ]}
         // onModelChange={handleModelChange}
       />
