@@ -1,23 +1,14 @@
-import logo from './logo.svg'
 import './App.scoped.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="page">
+      <div className="state">{/* STATE HERE */}</div>
+      <div className="tape-wrapper">
+        <div className="tape">{/* TAPE HERE */}</div>
+      </div>
+      <div className="display">{/* DISPLAY HERE */}</div>
+      <div className="panel">{/* PANEL HERE */}</div>
     </div>
   )
 }
