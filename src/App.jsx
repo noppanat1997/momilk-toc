@@ -1,6 +1,7 @@
-import { useState } from "react";
-import InputTape from "./components/InputTape";
-import "./App.scoped.css";
+import { useState } from "react"
+import InputTape from "./components/InputTape"
+import Display from "./components/Display"
+import "./App.scoped.css"
 
 function App() {
   const [input, setInput] = useState([
@@ -9,14 +10,14 @@ function App() {
     { id: 3, text: "กล้วย" },
     { id: 4, text: "หวานปกติ" },
     { id: 5, text: "คนละครึ่ง" },
-  ]);
+  ])
 
   async function addInput(data) {
     // console.log(data);
-    const element = document.getElementById("scrollable-tape");
-    await setInput([...input, { id: input.length + 1, text: data }]);
-    var maxScrollLeft = element.scrollWidth - element.clientWidth;
-    element.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
+    const element = document.getElementById("scrollable-tape")
+    await setInput([...input, { id: input.length + 1, text: data }])
+    var maxScrollLeft = element.scrollWidth - element.clientWidth
+    element.scrollTo({ left: maxScrollLeft, behavior: "smooth" })
   }
 
   return (
@@ -27,7 +28,9 @@ function App() {
           <InputTape data={input} setData={setInput} />
         </div>
       </div>
-      <div className="display">{/* DISPLAY HERE */}</div>
+      <div className="display">
+        <Display size="ขนาดใหญ่" toppings={["cereal", "brownie"]} />
+      </div>
       <div className="panel">{/* PANEL HERE */}</div>
       <button
         style={{ position: "absolute", bottom: "2rem", right: "2rem" }}
@@ -36,7 +39,7 @@ function App() {
         Add Stage
       </button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
