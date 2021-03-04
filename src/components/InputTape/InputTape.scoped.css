@@ -34,7 +34,6 @@
   width: 110px;
   height: 50px;
   border-radius: 50px;
-  /* background-color: red; */
   box-shadow: 0 0 10px 15px rgba(255, 255, 255, 1);
 }
 
@@ -50,6 +49,7 @@
   padding: 0 15px;
   box-sizing: border-box;
   cursor: default;
+  user-select: none;
 }
 
 .remove {
