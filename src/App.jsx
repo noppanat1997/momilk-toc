@@ -3,6 +3,7 @@ import InputTape from "./components/InputTape"
 import Display from "./components/Display"
 import StateChart from "./components/StateChart"
 import "./App.scoped.css"
+import cream from "./img/cream.png"
 
 function App() {
   const [input, setInput] = useState([

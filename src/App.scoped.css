@@ -8,6 +8,14 @@
     "panel panel panel";
 }
 
+.cream {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  user-select: none;
+}
+
 .state {
   grid-area: state;
   background: lightgray;

@@ -1,9 +1,12 @@
-import "./InputTape.scoped.css";
+import "./InputTape.scoped.css"
+import { useHorizontalScroll } from "./useHorizontalScroll"
 
 function InputTape({ data, setData }) {
+  const scrollef = useHorizontalScroll()
+
   return (
     <>
-      <div className="scrollable-tape" id="scrollable-tape">
+      <div className="scrollable-tape" id="scrollable-tape" ref={scrollef}>
         {data.map((item, index) => {
           return (
             <div className="tag" key={index}>
@@ -12,8 +15,8 @@ function InputTape({ data, setData }) {
                 className="remove"
                 onClick={() => {
                   setData((prev) => {
-                    return prev.filter((ele) => ele.id !== item.id);
-                  });
+                    return prev.filter((ele) => ele.id !== item.id)
+                  })
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
@@ -26,13 +29,13 @@ function InputTape({ data, setData }) {
                 />
               </svg>
             </div>
-          );
+          )
         })}
       </div>
       <button
         className="clear"
         onClick={() => {
-          setData([]);
+          setData([])
         }}
         disabled={data.length === 0 && true}
       >
@@ -52,7 +55,7 @@ function InputTape({ data, setData }) {
         รีเซ็ต
       </button>
     </>
-  );
+  )
 }
 
-export default InputTape;
+export default InputTape
