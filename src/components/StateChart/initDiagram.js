@@ -39,7 +39,11 @@ export function initDiagram() {
     ),
     $(
       go.TextBlock,
+      {
+        font: "9pt Prompt, arial, sans-serif",
+      },
       { editable: false, overflow: go.TextBlock.OverflowClip }, // some room around the text
+      new go.Binding("stroke", "color"),
       new go.Binding("text").makeTwoWay()
     )
   )
@@ -51,9 +55,7 @@ export function initDiagram() {
       "Spot",
       { locationSpot: go.Spot.Center },
       { desiredSize: new go.Size(75, 75) },
-      new go.Binding("location", "loc", go.Point.parse).makeTwoWay(
-        go.Point.stringify
-      ),
+      new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
       $(
         go.Shape,
         "Circle",
@@ -74,7 +76,7 @@ export function initDiagram() {
         go.TextBlock,
         "Start",
         {
-          font: "bold 16pt helvetica, bold arial, sans-serif",
+          font: "bold 16pt Prompt, bold arial, sans-serif",
         },
         new go.Binding("stroke", "color")
       )
@@ -88,27 +90,20 @@ export function initDiagram() {
       "Spot",
       { locationSpot: go.Spot.Center },
       { desiredSize: new go.Size(75, 75) },
-      new go.Binding("location", "loc", go.Point.parse).makeTwoWay(
-        go.Point.stringify
-      ),
-      $(go.Shape, "Circle", {
-        stroke: null,
-        portId: "",
-        fromLinkable: true,
-        fromLinkableSelfNode: true,
-        fromLinkableDuplicates: true,
-        toLinkable: true,
-        toLinkableSelfNode: true,
-        toLinkableDuplicates: true,
-        cursor: "pointer",
-      }),
+      new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
       $(
         go.Shape,
         "Circle",
         {
-          fill: null,
-          desiredSize: new go.Size(65, 65),
-          strokeWidth: 2,
+          stroke: null,
+          portId: "",
+          fromLinkable: true,
+          fromLinkableSelfNode: true,
+          fromLinkableDuplicates: true,
+          toLinkable: true,
+          toLinkableSelfNode: true,
+          toLinkableDuplicates: true,
+          cursor: "pointer",
         },
         new go.Binding("fill", "fill")
       ),
@@ -116,7 +111,7 @@ export function initDiagram() {
         go.TextBlock,
         "End",
         {
-          font: "bold 16pt helvetica, bold arial, sans-serif",
+          font: "bold 16pt Prompt, bold arial, sans-serif",
         },
         new go.Binding("stroke", "color")
       )
