@@ -24,6 +24,7 @@ function App() {
 
   return (
     <div className="page">
+      <img src={cream} alt="cream" className="cream" />
       <div className="state">
         <StateChart />
       </div>

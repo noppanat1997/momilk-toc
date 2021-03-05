@@ -76,7 +76,7 @@ export function initDiagram() {
         go.TextBlock,
         "Start",
         {
-          font: "bold 16pt Prompt, bold arial, sans-serif",
+          font: "16pt Prompt, arial, sans-serif",
         },
         new go.Binding("stroke", "color")
       )
@@ -111,7 +111,7 @@ export function initDiagram() {
         go.TextBlock,
         "End",
         {
-          font: "bold 16pt Prompt, bold arial, sans-serif",
+          font: "16pt Prompt, arial, sans-serif",
         },
         new go.Binding("stroke", "color")
       )
@@ -121,6 +121,7 @@ export function initDiagram() {
   diagram.linkTemplate = $(
     go.Link, // the whole link panel
     new go.Binding("points").makeTwoWay(),
+    { curve: go.Link.Bezier },
     $(
       go.Shape, // the link shape
       { strokeWidth: 3 },
