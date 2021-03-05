@@ -1,7 +1,7 @@
 *::-webkit-scrollbar {
   position: absolute;
   width: 10px;
-  height: 7px;
+  height: 0px;
 }
 
 *::-webkit-scrollbar-track {
