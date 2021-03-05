@@ -2,6 +2,7 @@ import { useState } from "react"
 import InputTape from "./components/InputTape"
 import Display from "./components/Display"
 import "./App.scoped.css"
+import cream from "./img/cream.png"
 
 function App() {
   const [input, setInput] = useState([
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <div className="page">
+      <img src={cream} alt="cream" className="cream" />
       <div className="state">{/* STATE HERE */}</div>
       <div className="tape-wrapper">
         <div className="tape">
