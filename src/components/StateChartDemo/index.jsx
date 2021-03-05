@@ -49,18 +49,24 @@ function initDiagram() {
   const diagram = $(go.Diagram, {
     // start everything in the middle of the viewport
     initialContentAlignment: go.Spot.Center,
+    initialAutoScale: go.Diagram.Uniform,
     'toolManager.mouseWheelBehavior': go.ToolManager.WheelZoom,
     layout: new go.ForceDirectedLayout(),
     'draggingTool.isEnabled': false,
     model: $(go.GraphLinksModel, {
       linkKeyProperty: 'key', // IMPORTANT! must be defined for merges and data sync when using GraphLinksModel
     }),
+    allowCopy: false,
+    allowDelete: false,
+    allowSelect: false,
+    allowLink: false,
   });
 
   // define a simple Node template
   diagram.nodeTemplate = $(
     go.Node,
     'Auto', // the Shape will go around the TextBlock
+    { locationSpot: go.Spot.Center },
     new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(
       go.Point.stringify,
     ),
@@ -73,47 +79,94 @@ function initDiagram() {
     ),
     $(
       go.TextBlock,
-      { margin: 8, editable: true }, // some room around the text
+      { margin: 8, editable: false, overflow: go.TextBlock.OverflowClip }, // some room around the text
       new go.Binding('text').makeTwoWay(),
+    ),
+  );
+
+  diagram.nodeTemplateMap.add(
+    'Start',
+    $(
+      go.Node,
+      'Spot',
+      { desiredSize: new go.Size(75, 75) },
+      new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(
+        go.Point.stringify,
+      ),
+      $(go.Shape, 'Circle', {
+        fill: '#52ce60' /* green */,
+        stroke: null,
+        portId: '',
+        fromLinkable: true,
+        fromLinkableSelfNode: true,
+        fromLinkableDuplicates: true,
+        toLinkable: true,
+        toLinkableSelfNode: true,
+        toLinkableDuplicates: true,
+        cursor: 'pointer',
+      }),
+      $(go.TextBlock, 'Start', {
+        font: 'bold 16pt helvetica, bold arial, sans-serif',
+        stroke: 'whitesmoke',
+      }),
+    ),
+  );
+
+  diagram.nodeTemplateMap.add(
+    'End',
+    $(
+      go.Node,
+      'Spot',
+      { desiredSize: new go.Size(75, 75) },
+      new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(
+        go.Point.stringify,
+      ),
+      $(go.Shape, 'Circle', {
+        fill: 'maroon',
+        stroke: null,
+        portId: '',
+        fromLinkable: true,
+        fromLinkableSelfNode: true,
+        fromLinkableDuplicates: true,
+        toLinkable: true,
+        toLinkableSelfNode: true,
+        toLinkableDuplicates: true,
+        cursor: 'pointer',
+      }),
+      $(go.Shape, 'Circle', {
+        fill: null,
+        desiredSize: new go.Size(65, 65),
+        strokeWidth: 2,
+        stroke: 'whitesmoke',
+      }),
+      $(go.TextBlock, 'End', {
+        font: 'bold 16pt helvetica, bold arial, sans-serif',
+        stroke: 'whitesmoke',
+      }),
     ),
   );
 
   diagram.linkTemplate = $(
     go.Link, // the whole link panel
     {
-      curve: go.Link.Bezier,
       adjusting: go.Link.Stretch,
-      reshapable: true,
-      relinkableFrom: true,
-      relinkableTo: true,
+      reshapable: false,
+      relinkableFrom: false,
+      relinkableTo: false,
       toShortLength: 3,
+      curve: go.Link.JumpOver,
     },
     new go.Binding('points').makeTwoWay(),
     new go.Binding('curviness'),
     $(
       go.Shape, // the link shape
-      { strokeWidth: 1.5 },
-      new go.Binding('stroke', 'progress', function(progress) {
-        switch (progress) {
-          case 'red': return '#FF0000'
-          case 'green': return '#52ce60'
-          case 'black': return '#000000'
-        };
-      }),
-      new go.Binding('strokeWidth', 'progress', function(progress) {
-        return progress ? 2.5 : 1.5;
-      }),
+      { strokeWidth: 3 },
+      new go.Binding('stroke', 'color'),
     ),
     $(
       go.Shape, // the arrowhead
       { toArrow: 'standard', stroke: null },
-      new go.Binding('fill', 'progress', function(progress) {
-        switch (progress) {
-          case 'red': return '#FF0000'
-          case 'green': return '#52ce60'
-          case 'black': return '#000000'
-        };
-      }),
+      new go.Binding('fill', 'color'),
     ),
     $(
       go.Panel,
@@ -121,11 +174,7 @@ function initDiagram() {
       $(
         go.Shape, // the label background, which becomes transparent around the edges
         {
-          fill: $(go.Brush, 'Radial', {
-            0: 'rgb(245, 245, 245)',
-            0.7: 'rgb(245, 245, 245)',
-            1: 'rgba(245, 245, 245, 0)',
-          }),
+          fill: 'white',
           stroke: null,
         },
       ),
@@ -136,7 +185,7 @@ function initDiagram() {
           textAlign: 'center',
           font: '9pt helvetica, arial, sans-serif',
           margin: 4,
-          editable: true, // enable in-place editing
+          editable: false, // enable in-place editing
         },
         // editing the text automatically updates the model data
         new go.Binding('text').makeTwoWay(),
@@ -163,17 +212,30 @@ function StateChartDemo() {
         initDiagram={initDiagram}
         divClassName="diagram-component"
         nodeDataArray={[
-          { key: 0, text: 'Alpha', color: 'lightblue', loc: '0 0' },
+          {
+            key: 0,
+            text: 'This sample\n showcases\n all predefined',
+            color: 'lightblue',
+            loc: '0 0',
+            category: 'Start',
+          },
           { key: 1, text: 'Beta', color: 'orange', loc: '150 0' },
-          { key: 2, text: 'Gamma', color: 'lightgreen', loc: '0 150' },
-          { key: 3, text: 'Delta', color: 'pink', loc: '150 150' },
+          // { key: 2, text: 'Gamma', color: 'lightgreen', loc: '0 150' },
+          // { key: 3, text: 'Delta', color: 'pink', loc: '150 150' },
+          // {
+          //   key: 4,
+          //   text: 'This sample\n showcases\n all predefined',
+          //   color: 'lightblue',
+          //   loc: '0 0',
+          //   category: 'End',
+          // },
         ]}
         linkDataArray={[
-          { key: -1, from: 0, to: 1, progress: 'red', text: 'Browse' },
-          { key: -2, from: 0, to: 2, progress: 'black', text: 'Browse' },
-          { key: -3, from: 1, to: 1, progress: 'green', text: 'Browse' },
-          { key: -4, from: 2, to: 3, progress: 'green', text: 'Browse' },
-          { key: -5, from: 3, to: 0, progress: 'red', text: 'Use search bar' },
+          { key: -1, from: 0, to: 1, color: 'red', text: 'Browse' },
+          // { key: -2, from: 0, to: 2, color: 'black', text: 'Browse' },
+          // { key: -3, from: 1, to: 1, color: 'green', text: 'Browse' },
+          // { key: -4, from: 2, to: 3, color: 'green', text: 'Browse' },
+          // { key: -5, from: 3, to: 4, color: 'red', text: 'Use search bar' },
         ]}
         // onModelChange={handleModelChange}
       />
