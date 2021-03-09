@@ -10,6 +10,8 @@
 
 .cream {
   position: absolute;
+  z-index: 30;
+  pointer-events: none;
   width: 100vw;
   top: 0;
   left: 0;
@@ -18,7 +20,7 @@
 
 .state {
   grid-area: state;
-  background: lightgray;
+  background: LemonChiffon;
 }
 
 .tape-wrapper {
@@ -44,11 +46,12 @@
 
 .display {
   grid-area: display;
-  background: deepskyblue;
+  background: LemonChiffon;
   overflow: hidden;
 }
 
 .panel {
+  border-radius: 50%;
   grid-area: panel;
   background: white;
 }

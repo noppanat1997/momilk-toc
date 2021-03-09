@@ -1,6 +1,7 @@
 import { useState } from "react"
 import InputTape from "./components/InputTape"
 import Display from "./components/Display"
+import StateChart from "./components/StateChart"
 import "./App.scoped.css"
 import cream from "./img/cream.png"
 
@@ -24,7 +25,9 @@ function App() {
   return (
     <div className="page">
       <img src={cream} alt="cream" className="cream" />
-      <div className="state">{/* STATE HERE */}</div>
+      <div className="state">
+        <StateChart />
+      </div>
       <div className="tape-wrapper">
         <div className="tape">
           <InputTape data={input} setData={setInput} />
