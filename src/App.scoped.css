@@ -6,6 +6,7 @@
     "state state display"
     "state state display"
     "panel panel panel";
+    grid-template-rows: auto auto 225px;
 }
 
 .cream {
@@ -51,4 +52,5 @@
 .panel {
   grid-area: panel;
   background: white;
+  overflow: hidden;
 }

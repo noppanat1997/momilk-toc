@@ -1,0 +1,77 @@
+.box{
+    background:white;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    max-height: 100%;
+    height: 100%;
+    /* width: 100%; */
+}
+.boxArrow{
+    background:white;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.positionRightArrow{
+   transform: translateX(5px);
+}
+.arrow{
+    /* height: 60px; */
+    width: 40px;
+    user-select: none;
+    pointer-events: none;
+}
+.center{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    overflow-x: hidden;
+    
+}
+.red{
+    background: red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+.blue{
+    background: blue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+.green{
+    background: green;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+.purple{
+    background: purple;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+
+.SaSp-arrow{
+    width: 40px;
+    opacity: 0.45;
+}

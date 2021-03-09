@@ -1,6 +1,7 @@
 import { useState } from "react"
 import InputTape from "./components/InputTape"
 import Display from "./components/Display"
+import Panel from "./components/Panel"
 import "./App.scoped.css"
 import cream from "./img/cream.png"
 
@@ -31,15 +32,17 @@ function App() {
         </div>
       </div>
       <div className="display">
-        <Display size="ขนาดใหญ่" toppings={["cereal", "brownie"]} />
+        <Display size="ขนาดเล็ก" toppings={["banana", "brownie"]} />
       </div>
-      <div className="panel">{/* PANEL HERE */}</div>
-      <button
+      <div className="panel">
+        <Panel />
+      </div>
+      {/* <button
         style={{ position: "absolute", bottom: "2rem", right: "2rem" }}
         onClick={() => addInput(`ทดสอบ ${input.length + 1}`)}
       >
         Add Stage
-      </button>
+      </button> */}
     </div>
   )
 }
