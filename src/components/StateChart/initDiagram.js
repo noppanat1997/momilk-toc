@@ -21,6 +21,7 @@ export function initDiagram() {
     allowDelete: false,
     allowSelect: false,
     allowLink: false,
+    "animationManager.isEnabled": false,
   })
 
   // define a simple Node template
@@ -121,7 +122,8 @@ export function initDiagram() {
   diagram.linkTemplate = $(
     go.Link, // the whole link panel
     new go.Binding("points").makeTwoWay(),
-    { curve: go.Link.Bezier },
+    new go.Binding("zOrder"),
+    { routing: go.Link.AvoidsNodes, corner: 30, curve: go.Link.JumpGap },
     $(
       go.Shape, // the link shape
       { strokeWidth: 3 },
@@ -129,7 +131,8 @@ export function initDiagram() {
     ),
     $(
       go.Shape, // the arrowhead
-      { toArrow: "standard", stroke: null },
+      { toArrow: "standard" },
+      new go.Binding("stroke", "color"),
       new go.Binding("fill", "color")
     )
   )

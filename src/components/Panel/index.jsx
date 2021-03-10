@@ -10,86 +10,160 @@ import cash from "../../img/cash.png"
 import eBank from "../../img/prompt.png"
 import half from "../../img/halfhalf.png"
 import sugar from "../../img/sugar.png"
+import { useHistory } from "react-router-dom"
+import { useState, useEffect } from "react"
 
-
-import { useState } from "react"
-
-function Panel() {
+function Panel({ addInput }) {
   const page = ["size", "topping", "sugar", "pay"]
   const [numPage, setNumPage] = useState(0)
+  const [state, setState] = useState({})
+  const history = useHistory()
+
+  useEffect(() => {
+    history.push({
+      pathname: "/state",
+      search: "?" + new URLSearchParams(state).toString(),
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state])
 
   const SlidePanel = ({ num }) => {
     return (
       <div className={page[num]}>
-        {num === 0 && 
-        <div className="size">
-          <div className="topic">เลือกขนาด</div>
-          <div className="base">
-            <img className="base-s" src={base} alt="Size S" />
-            <img className="base-m" src={base} alt="Size M" />
-            <img className="base-l" src={base} alt="Size L" />
-          </div>
-          <div className="sizeDescript">
-            <div>เล็ก</div>
-            <div>กลาง</div>
-            <div>ใหญ่</div>
-          </div>
-        </div>
-        }
-        {num === 1 &&
-        <div className="topping">
-          <div className="topic">เลือก Topping (0/3)</div>
-          <div className="base">
-            <img className="topping12" src={brownie} alt="Brownie" />
-            <img className="topping12" src={banana} alt="Banana" />
-            <img className="topping34" src={strawberry} alt="Strawberry" />
-            <img className="topping34" src={cereal} alt="Cereal" />
-          </div>
-          <div className="toppingDescript">
-            <div>บราวนี่</div>
-            <div>กล้วย</div>
-            <div>สตอเบอรี่</div>
-            <div>คอนเฟลก</div>
-          </div>
-        </div>
-        }
-        {num === 2 &&
-        <div className="sugar">
-          <div className="topic">เลือกความหวาน</div>
-          <div className="base">
-            <img className="lessSugar" src={sugar} alt="Less Sugar" />
-            <div className="normalSugar">
-              <img src={sugar} alt="Normal Sugar" />
-              <img src={sugar} alt="Normal Sugar" />
+        {num === 0 && (
+          <div className="size">
+            <div className="topic">เลือกขนาด</div>
+            <div className="base">
+              <img
+                className="base-s"
+                src={base}
+                alt="Size S"
+                onClick={() => {
+                  addInput("ขนาดเล็ก")
+                  setState({ ...state, size: "s" })
+                }}
+              />
+              {/* <img
+                className="base-m"
+                src={base}
+                alt="Size M"
+                onClick={() => {
+                  addInput("ขนาดกลาง")
+                  setState({ ...state, size: "m" })
+                }}
+              /> */}
+              <img
+                className="base-l"
+                src={base}
+                alt="Size L"
+                onClick={() => {
+                  addInput("ขนาดใหญ่")
+                  setState({ ...state, size: "l" })
+                }}
+              />
             </div>
-            <div className="moreSugar">
-              <img src={sugar} alt="More Sugar" />
-              <img src={sugar} alt="More Sugar" />
-              <img src={sugar} alt="More Sugar" />
+            <div className="sizeDescript">
+              <div
+                onClick={() => {
+                  addInput("ขนาดเล็ก")
+                  setState({ ...state, size: "s" })
+                }}
+              >
+                เล็ก
+              </div>
+              {/* <div
+                onClick={() => {
+                  addInput("ขนาดกลาง")
+                  setState({ ...state, size: "m" })
+                }}
+              >
+                กลาง
+              </div> */}
+              <div
+                onClick={() => {
+                  addInput("ขนาดใหญ่")
+                  setState({ ...state, size: "l" })
+                }}
+              >
+                ใหญ่
+              </div>
             </div>
           </div>
-          <div className="sugarDescript">
-            <div>หวานน้อย</div>
-            <div>หวานปกติ</div>
-            <div>หวานมาก</div>
+        )}
+        {num === 1 && (
+          <div className="topping">
+            <div className="topic">เลือก Topping (0/3)</div>
+            <div className="base">
+              <img
+                className="topping12"
+                src={brownie}
+                alt="Brownie"
+                onClick={() => setState({ ...state, topping1: "brownie" })}
+              />
+              <img
+                className="topping12"
+                src={banana}
+                alt="Banana"
+                onClick={() => setState({ ...state, topping1: "banana" })}
+              />
+              <img
+                className="topping34"
+                src={strawberry}
+                alt="Strawberry"
+                onClick={() => setState({ ...state, topping1: "strawberry" })}
+              />
+              <img
+                className="topping34"
+                src={cereal}
+                alt="Cereal"
+                onClick={() => setState({ ...state, topping1: "cereal" })}
+              />
+            </div>
+            <div className="toppingDescript">
+              <div onClick={() => setState({ ...state, topping1: "brownie" })}>บราวนี่</div>
+              <div onClick={() => setState({ ...state, topping1: "banana" })}>กล้วย</div>
+              <div onClick={() => setState({ ...state, topping1: "strawberry" })}>สตอเบอรี่</div>
+              <div onClick={() => setState({ ...state, topping1: "cereal" })}>คอนเฟลก</div>
+            </div>
           </div>
-        </div>
-        }
-        {num === 3 &&
-        <div className="pay">
-          <div className="topic">เลือกวิธีชำระเงิน</div>
-          <div className="base">
-            <img className="cash" src={cash} alt="Cash" />
-            <img className="eBank" src={eBank} alt="E-Bank" />
-            <img className="half" src={half} alt="Half-Half" />
+        )}
+        {num === 2 && (
+          <div className="sugar">
+            <div className="topic">เลือกความหวาน</div>
+            <div className="base">
+              <img className="lessSugar" src={sugar} alt="Less Sugar" />
+              <div className="normalSugar">
+                <img src={sugar} alt="Normal Sugar" />
+                <img src={sugar} alt="Normal Sugar" />
+              </div>
+              <div className="moreSugar">
+                <img src={sugar} alt="More Sugar" />
+                <img src={sugar} alt="More Sugar" />
+                <img src={sugar} alt="More Sugar" />
+              </div>
+            </div>
+            <div className="sugarDescript">
+              <div>หวานน้อย</div>
+              <div>หวานปกติ</div>
+              <div>หวานมาก</div>
+            </div>
           </div>
-          <div className="payDescript">
-            <div>เงินสด</div>
-            <div>พร้อมเพย์/โอน</div>
-            <div>คนละครึ่ง</div>
+        )}
+        {num === 3 && (
+          <div className="pay">
+            <div className="topic">เลือกวิธีชำระเงิน</div>
+            <div className="base">
+              <img className="cash" src={cash} alt="Cash" />
+              <img className="eBank" src={eBank} alt="E-Bank" />
+              <img className="half" src={half} alt="Half-Half" />
+            </div>
+            <div className="payDescript">
+              <div>เงินสด</div>
+              <div>พร้อมเพย์/โอน</div>
+              <div>คนละครึ่ง</div>
+            </div>
           </div>
-        </div>
-        }
+        )}
       </div>
     )
   }

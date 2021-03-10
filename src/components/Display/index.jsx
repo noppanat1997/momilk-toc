@@ -9,17 +9,13 @@ import strawberry from "../../img/strawberry.png"
 import cereal from "../../img/cereal.png"
 
 function Display({ size, toppings = [] }) {
-  const baseSize = size === "ขนาดเล็ก" ? "s" : size === "ขนาดกลาง" ? "m" : "l"
-
   return (
     <div className="container">
-      <div className={`cup ${baseSize}`}>
+      <div className={`cup ${size}`}>
         <img className="base" src={base} alt="base" />
         <img className="base cover" src={cover} alt="cover" />
         {/* Ice-cream size */}
-        {size === "ขนาดเล็ก" && (
-          <img className="base icecream-s" src={icecream} alt="icecream" />
-        )}
+        {size === "s" && <img className="base icecream-s" src={icecream} alt="icecream" />}
         {size === "ขนาดกลาง" && (
           <>
             <img className="base icecream-m" src={icecream} alt="icecream" />
@@ -37,18 +33,10 @@ function Display({ size, toppings = [] }) {
         <div className="base topping">
           {toppings.map((t) => (
             <>
-              {t === "brownie" && (
-                <img className="base" src={brownie} alt="brownie" />
-              )}
-              {t === "banana" && (
-                <img className="base banana" src={banana} alt="banana" />
-              )}
-              {t === "strawberry" && (
-                <img className="base" src={strawberry} alt="strawberry" />
-              )}
-              {t === "cereal" && (
-                <img className="base cereal" src={cereal} alt="cereal" />
-              )}
+              {t === "brownie" && <img className="base" src={brownie} alt="brownie" />}
+              {t === "banana" && <img className="base banana" src={banana} alt="banana" />}
+              {t === "strawberry" && <img className="base" src={strawberry} alt="strawberry" />}
+              {t === "cereal" && <img className="base cereal" src={cereal} alt="cereal" />}
             </>
           ))}
         </div>

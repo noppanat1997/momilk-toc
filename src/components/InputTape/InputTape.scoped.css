@@ -52,20 +52,6 @@
   user-select: none;
 }
 
-.remove {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: #666666;
-  border: none;
-  margin-left: 15px;
-  cursor: pointer;
-  transition: all ease-in-out 150ms;
-}
-
-.remove:hover {
-  color: #ff3f3f;
-}
-
 .clear {
   display: flex;
   align-items: center;
