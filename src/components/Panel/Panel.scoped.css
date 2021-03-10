@@ -1,0 +1,223 @@
+.box{
+    background:white;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    max-height: 100%;
+    height: 100%;
+    /* width: 100%; */
+}
+.boxArrow{
+    background:white;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.positionRightArrow{
+   transform: translateX(5px);
+}
+.arrow{
+    /* height: 60px; */
+    width: 40px;
+    user-select: none;
+    pointer-events: none;
+}
+.center{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    overflow-x: hidden;
+    
+}
+.topic{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    margin-top: 10px;
+}
+.size{
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.base{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+.base-s{
+    width: 110px;
+    height: 88px;
+    margin-left: 55px;
+}
+.base-s:hover{
+    background: rgb(228, 228, 228);
+}
+.base-m{
+    width: 127px;
+    height: 105px;
+    margin-left: 30px;
+}
+.base-m:hover{
+    background: rgb(228, 228, 228);
+}
+.base-l{
+    width: 179px;
+    height: 151px;
+    margin-left: 20px;
+}
+.base-l:hover{
+    background: rgb(228, 228, 228);
+}
+.sizeDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    height: 100%;
+    font-size: 20px;
+}
+.topping{
+    background:white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.topping12{
+    width: 124px;
+    height: 99px;
+    margin: 25px 20px 0 0;
+}
+.topping34{
+    width: 146px;
+    height: 110px;
+    margin-top: 25px;
+}
+.toppingDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 525px;
+    height: 100%;
+    font-size: 20px;
+}
+.sugar{ 
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.lessSugar{
+    width: 162px;
+    height: 131px;
+    position: relative;
+    top: 10%;
+    margin-left: 70px;
+}
+.normalSugar{
+    width: 230px;
+    height: 120px;
+    position: relative;
+    margin-left: 80px;
+}
+.normalSugar > img {
+    position: absolute;
+}
+.normalSugar > :first-child {
+    bottom: -10%;
+    left: 10%;
+}
+.normalSugar > :nth-child(2) {
+    right: 30%;
+}
+.moreSugar{
+    width: 260px;
+    height: 140px;
+    position: relative;
+    margin-left: 30px;
+}
+.moreSugar > img {
+    position: absolute;
+}
+.moreSugar > :first-child {
+    top: 0%;
+    bottom: 1%;
+    right: 20%;
+}
+.moreSugar > :nth-child(2) {
+    top: 10%;
+    right: 35%;
+}
+.moreSugar > :nth-child(3) {
+    top: 15%;
+    left: 30%;
+}
+.sugarDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    height: 100%;
+    font-size: 20px;
+}
+.pay{
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cash{
+    width: 110px;
+    height: 110px;
+    margin-top: 20px;
+}
+.eBank{
+    width: 200px;
+    height: 70px;
+    margin-left: 60px;
+}
+.half{
+    width: 150px;
+    height: 110px;
+    margin-left: 40px;
+}
+.payDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    height: 100%;
+    font-size: 20px;
+}
+
+.SaSp-arrow{
+    width: 40px;
+    opacity: 0.45;
+}
