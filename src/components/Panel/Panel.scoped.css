@@ -34,41 +34,171 @@
     overflow-x: hidden;
     
 }
-.red{
-    background: red;
+.size{
+    background: white;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
+    font-size: 35px;
 }
-.blue{
-    background: blue;
+.base{
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    font-size: 100px;
+    align-items: baseline;
+    margin-top: -20px;
 }
-.green{
-    background: green;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 100px;
+.base-s{
+    width: 110px;
+    height: 88px;
+    margin-left: 55px;
 }
-.purple{
-    background: purple;
+.base-m{
+    width: 127px;
+    height: 105px;
+    margin-left: 30px;
+}
+.base-l{
+    width: 179px;
+    height: 151px;
+    margin-left: 20px;
+}
+.sizeDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    font-size: 20px;
+}
+.topping{
+    background:white;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 100px;
+    font-size: 35px;
+}
+.topping12{
+    width: 124px;
+    height: 99px;
+    margin: 25px 20px 0 0;
+}
+.topping34{
+    width: 146px;
+    height: 110px;
+    margin-top: 25px;
+}
+.toppingDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 525px;
+    font-size: 20px;
+}
+.sugar{ 
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+.lessSugar{
+    width: 162px;
+    height: 131px;
+    position: relative;
+    top: 10%;
+    margin-left: 70px;
+}
+.normalSugar{
+    width: 230px;
+    height: 120px;
+    position: relative;
+    margin-left: 80px;
+}
+.normalSugar > img {
+    position: absolute;
+}
+.normalSugar > :first-child {
+    bottom: -10%;
+    left: 10%;
+}
+.normalSugar > :nth-child(2) {
+    right: 30%;
+}
+.moreSugar{
+    width: 260px;
+    height: 140px;
+    position: relative;
+    margin-left: 30px;
+}
+.moreSugar > img {
+    position: absolute;
+}
+.moreSugar > :first-child {
+    top: 0%;
+    bottom: 1%;
+    right: 20%;
+}
+.moreSugar > :nth-child(2) {
+    top: 10%;
+    right: 35%;
+}
+.moreSugar > :nth-child(3) {
+    top: 15%;
+    left: 30%;
+}
+.sugarDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    font-size: 20px;
+}
+.pay{
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+.cash{
+    width: 110px;
+    height: 110px;
+    margin-top: 20px;
+}
+.eBank{
+    width: 200px;
+    height: 70px;
+    margin-left: 60px;
+}
+.half{
+    width: 150px;
+    height: 110px;
+    margin-left: 40px;
+}
+.payDescript{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    font-size: 20px;
 }
 
 .SaSp-arrow{
