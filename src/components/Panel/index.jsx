@@ -23,7 +23,7 @@ function Panel() {
       <div className={page[num]}>
         {num === 0 && 
         <div className="size">
-          <div>เลือกขนาด</div>
+          <div className="topic">เลือกขนาด</div>
           <div className="base">
             <img className="base-s" src={base} alt="Size S" />
             <img className="base-m" src={base} alt="Size M" />
@@ -38,7 +38,7 @@ function Panel() {
         }
         {num === 1 &&
         <div className="topping">
-          <div>เลือก Topping (0/3)</div>
+          <div className="topic">เลือก Topping (0/3)</div>
           <div className="base">
             <img className="topping12" src={brownie} alt="Brownie" />
             <img className="topping12" src={banana} alt="Banana" />
@@ -55,7 +55,7 @@ function Panel() {
         }
         {num === 2 &&
         <div className="sugar">
-          <div>เลือกความหวาน</div>
+          <div className="topic">เลือกความหวาน</div>
           <div className="base">
             <img className="lessSugar" src={sugar} alt="Less Sugar" />
             <div className="normalSugar">
@@ -77,7 +77,7 @@ function Panel() {
         }
         {num === 3 &&
         <div className="pay">
-          <div>เลือกวิธีชำระเงิน</div>
+          <div className="topic">เลือกวิธีชำระเงิน</div>
           <div className="base">
             <img className="cash" src={cash} alt="Cash" />
             <img className="eBank" src={eBank} alt="E-Bank" />
