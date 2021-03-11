@@ -8,8 +8,8 @@ import banana from "../../img/banana-slice.png"
 import cereal from "../../img/cereal.png"
 
 function Display({ size, topping }) {
-  const SIZE_PROPS = ["s", "l"]
-  const TOPPING_PROPS = ["brownie", "banana", "cereal"]
+  const SIZE_PROPS = [undefined, "s", "l"]
+  const TOPPING_PROPS = [undefined, "brownie", "banana", "cereal"]
 
   if (!SIZE_PROPS.includes(size))
     throw new Error(`<Display /> props "size" can only be "${SIZE_PROPS}"`)

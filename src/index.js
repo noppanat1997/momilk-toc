@@ -7,7 +7,7 @@ import App from "./App"
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Route path="*" component={App} />
+      <Route render={(props) => <App {...props} />} />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

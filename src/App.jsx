@@ -7,15 +7,19 @@ import cream from "./img/cream.png"
 import "./App.scoped.css"
 
 function App() {
-  const [input, setInput] = useState(["ขนาดกลาง", "บราวนี่", "กล้วย", "หวานปกติ", "คนละครึ่ง"])
+  const [input, setInput] = useState([])
+  const [display, setDisplay] = useState({})
 
   async function addInput(text) {
-    // console.log(text);
     const element = document.getElementById("scrollable-tape")
     await setInput([...input, text])
     var maxScrollLeft = element.scrollWidth - element.clientWidth
     element.scrollTo({ left: maxScrollLeft, behavior: "smooth" })
   }
+
+  const setSize = (size) => setDisplay((d) => ({ ...d, size }))
+  const setTopping = (topping) => setDisplay((d) => ({ ...d, topping }))
+  const setMilk = (milk) => setDisplay((d) => ({ ...d, milk }))
 
   return (
     <div className="page">
@@ -29,7 +33,7 @@ function App() {
         </div>
       </div>
       <div className="display">
-        <Display size="s" topping="brownie" />
+        <Display size={display.size} topping={display.topping} />
       </div>
       <div className="panel">
         <Panel addInput={addInput} />
