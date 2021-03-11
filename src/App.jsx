@@ -29,7 +29,7 @@ function App() {
         </div>
       </div>
       <div className="display">
-        <Display size="ขนาดเล็ก" toppings={["banana", "brownie"]} />
+        <Display size="s" topping="brownie" />
       </div>
       <div className="panel">
         <Panel addInput={addInput} />
