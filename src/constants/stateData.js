@@ -144,6 +144,15 @@ export const INITIAL_STATE_DATA = {
       loc: "900 0",
       category: "End",
     },
+    {
+      key: 16,
+      layer: "trap",
+      value: "Tarpstate",
+      text: "trapstate",
+      fill: "black",
+      color: "white",
+      loc: "1100 0",
+    },
   ],
   linkDataArray: [
     //layer 1 start -> size
@@ -221,5 +230,24 @@ export const INITIAL_STATE_DATA = {
     { key: -52, from: 6, to: 15, color: "#fff281", zOrder: 1 },
     { key: -53, from: 7, to: 15, color: "#fff281", zOrder: 1 },
     { key: -54, from: 8, to: 15, color: "#fff281", zOrder: 1 },
+    //Reset State
+    { key: -55, from: 1, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -56, from: 2, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -57, from: 3, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -58, from: 4, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -59, from: 5, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -60, from: 6, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -61, from: 7, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -62, from: 8, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -63, from: 9, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -64, from: 10, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -65, from: 11, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -66, from: 12, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -67, from: 13, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -68, from: 14, to: 0, color: "#fff281", zOrder: 1 },
+    { key: -69, from: 15, to: 0, color: "#fff281", zOrder: 1 },
+    //LayerTrap
+    { key: -70, from: 15, to: 16, color: "#fff281", zOrder: 1 },
+    { key: -71, from: 16, to: 16, color: "#fff281", zOrder: 1 },
   ],
 }
