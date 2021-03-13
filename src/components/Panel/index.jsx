@@ -40,7 +40,7 @@ function Panel({ addInput }) {
                 alt="Size S"
                 onClick={() => {
                   addInput("ขนาดเล็ก")
-                  setState({ ...state, size: "s" })
+                  setState({ ...state, size: "l_cereal" })
                 }}
               />
               {/* <img

@@ -11,7 +11,6 @@ export function initDiagram() {
   const diagram = $(go.Diagram, {
     // start everything in the middle of the viewport
     initialContentAlignment: go.Spot.Center,
-    initialAutoScale: go.Diagram.Uniform,
     "toolManager.mouseWheelBehavior": go.ToolManager.WheelZoom,
     "draggingTool.isEnabled": false,
     model: $(go.GraphLinksModel, {
@@ -23,7 +22,6 @@ export function initDiagram() {
     allowLink: false,
     "animationManager.isEnabled": false,
   })
-
   // define a simple Node template
   diagram.nodeTemplate = $(
     go.Node,
@@ -108,6 +106,12 @@ export function initDiagram() {
         },
         new go.Binding("fill", "fill")
       ),
+      $(go.Shape, "Circle", {
+        fill: null,
+        desiredSize: new go.Size(65, 65),
+        strokeWidth: 2,
+        stroke: "whitesmoke",
+      }),
       $(
         go.TextBlock,
         "End",
@@ -123,7 +127,7 @@ export function initDiagram() {
     go.Link, // the whole link panel
     new go.Binding("points").makeTwoWay(),
     new go.Binding("zOrder"),
-    { routing: go.Link.AvoidsNodes, corner: 30, curve: go.Link.JumpGap },
+    { routing: go.Link.AvoidsNodes, corner: 30 },
     $(
       go.Shape, // the link shape
       { strokeWidth: 3 },
