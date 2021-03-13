@@ -71,14 +71,6 @@ function Panel({ addInput }) {
               >
                 เล็ก
               </div>
-              {/* <div
-                onClick={() => {
-                  addInput("ขนาดกลาง")
-                  setState({ ...state, size: "m" })
-                }}
-              >
-                กลาง
-              </div> */}
               <div
                 onClick={() => {
                   addInput("ขนาดใหญ่")

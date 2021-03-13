@@ -9,6 +9,7 @@
     "panel  panel   panel";
   grid-template-rows: 80px auto 80px 250px;
   background: LemonChiffon;
+  overflow: hidden;
 }
 
 .cream {
@@ -44,7 +45,7 @@
 }
 
 .display {
-  grid-area: display;
+  grid-area: 2 / 3 / 4 / 4;
   background: LemonChiffon;
   overflow: hidden;
 }

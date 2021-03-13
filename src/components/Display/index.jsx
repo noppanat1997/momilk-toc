@@ -5,10 +5,18 @@ import icecream from "../../img/icecream.png"
 
 import brownie from "../../img/brownie.png"
 import banana from "../../img/banana-slice.png"
-import strawberry from "../../img/strawberry.png"
 import cereal from "../../img/cereal.png"
 
-function Display({ size, toppings = [] }) {
+function Display({ size, topping }) {
+  const SIZE_PROPS = [undefined, "s", "l"]
+  const TOPPING_PROPS = [undefined, "brownie", "banana", "cereal"]
+
+  if (!SIZE_PROPS.includes(size))
+    throw new Error(`<Display /> props "size" can only be "${SIZE_PROPS}"`)
+
+  if (!TOPPING_PROPS.includes(topping))
+    throw new Error(`<Display /> props "topping" can only be "${TOPPING_PROPS}"`)
+
   return (
     <div className="container">
       <div className={`cup ${size}`}>
@@ -16,13 +24,7 @@ function Display({ size, toppings = [] }) {
         <img className="base cover" src={cover} alt="cover" />
         {/* Ice-cream size */}
         {size === "s" && <img className="base icecream-s" src={icecream} alt="icecream" />}
-        {size === "ขนาดกลาง" && (
-          <>
-            <img className="base icecream-m" src={icecream} alt="icecream" />
-            <img className="base icecream-m" src={icecream} alt="icecream" />
-          </>
-        )}
-        {size === "ขนาดใหญ่" && (
+        {size === "l" && (
           <>
             <img className="base icecream-l" src={icecream} alt="icecream" />
             <img className="base icecream-l" src={icecream} alt="icecream" />
@@ -31,14 +33,24 @@ function Display({ size, toppings = [] }) {
         )}
         {/* Topping */}
         <div className="base topping">
-          {toppings.map((t) => (
+          {topping === "brownie" && (
             <>
-              {t === "brownie" && <img className="base" src={brownie} alt="brownie" />}
-              {t === "banana" && <img className="base banana" src={banana} alt="banana" />}
-              {t === "strawberry" && <img className="base" src={strawberry} alt="strawberry" />}
-              {t === "cereal" && <img className="base cereal" src={cereal} alt="cereal" />}
+              <img className="base" src={brownie} alt="brownie" />
+              <img className="base" src={brownie} alt="brownie" />
             </>
-          ))}
+          )}
+          {topping === "banana" && (
+            <>
+              <img className="base banana" src={banana} alt="banana" />
+              <img className="base banana" src={banana} alt="banana" />
+            </>
+          )}
+          {topping === "cereal" && (
+            <>
+              <img className="base cereal" src={cereal} alt="cereal" />
+              <img className="base cereal" src={cereal} alt="cereal" />
+            </>
+          )}
         </div>
       </div>
     </div>
