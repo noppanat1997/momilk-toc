@@ -23,9 +23,7 @@ function StateChart() {
       if (element === null) return
       const diagram = element.getDiagram()
       if (diagram instanceof go.Diagram) {
-        console.log("Adding event listeners....")
         diagram.addDiagramListener("InitialLayoutCompleted", () => {
-          console.log(focusKey)
           // find the corresponding Node
           const data = diagram.findNodeForKey(focusKey)
           // and center it and select it
@@ -38,8 +36,6 @@ function StateChart() {
   )
 
   useEffect(() => {
-    console.log(queryString.parse(location.search))
-
     const queryObject = queryString.parse(location.search)
     if (Object.keys(queryObject).length > 0) {
       updatedNodeDataHandler(queryObject)
@@ -65,6 +61,7 @@ function StateChart() {
               return {
                 ...link,
                 color: "DimGrey",
+                visible: true,
                 zOrder: 99,
               }
             } else {
