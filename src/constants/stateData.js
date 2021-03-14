@@ -224,13 +224,13 @@ export const INITIAL_STATE_DATA = {
     { key: -47, from: 13, to: 7, color: "white", zOrder: 1, visible: false, text: "กล้วย" },
     { key: -48, from: 14, to: 8, color: "white", zOrder: 1, visible: false, text: "คอนเฟรก" },
     //Layer 2 -> Layer 4
-    { key: -49, from: 3, to: 15, color: "white", zOrder: 1, visible: false, text: "" },
-    { key: -50, from: 4, to: 15, color: "white", zOrder: 1, visible: false, text: "" },
-    { key: -51, from: 5, to: 15, color: "white", zOrder: 1, visible: false, text: "" },
+    { key: -49, from: 3, to: 15, color: "white", zOrder: 1, visible: false, text: "Confirm" },
+    { key: -50, from: 4, to: 15, color: "white", zOrder: 1, visible: false, text: "Confirm" },
+    { key: -51, from: 5, to: 15, color: "white", zOrder: 1, visible: false, text: "Confirm" },
 
-    { key: -52, from: 6, to: 15, color: "white", zOrder: 1, visible: false, text: "" },
-    { key: -53, from: 7, to: 15, color: "white", zOrder: 1, visible: false, text: "" },
-    { key: -54, from: 8, to: 15, color: "white", zOrder: 1, visible: false, text: "" },
+    { key: -52, from: 6, to: 15, color: "white", zOrder: 1, visible: false, text: "Confirm" },
+    { key: -53, from: 7, to: 15, color: "white", zOrder: 1, visible: false, text: "Confirm" },
+    { key: -54, from: 8, to: 15, color: "white", zOrder: 1, visible: false, text: "Confirm" },
     //Reset State
     { key: -55, from: 1, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
     { key: -56, from: 2, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
@@ -247,8 +247,25 @@ export const INITIAL_STATE_DATA = {
     { key: -67, from: 13, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
     { key: -68, from: 14, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
     { key: -69, from: 15, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -72, from: 16, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
     //LayerTrap
-    { key: -70, from: 15, to: 16, color: "white", zOrder: 1, visible: false, text: "" },
-    { key: -71, from: 16, to: 16, color: "white", zOrder: 1, visible: false, text: "" },
+    {
+      key: -70,
+      from: 15,
+      to: 16,
+      color: "white",
+      zOrder: 1,
+      visible: false,
+      text: "บราวนี่,กล้วย,คอนเฟรก,ใส่นม,reset,confirm",
+    },
+    {
+      key: -71,
+      from: 16,
+      to: 16,
+      color: "white",
+      zOrder: 1,
+      visible: false,
+      text: "บราวนี่,กล้วย,คอนเฟรก,ใส่นม,reset,confirm",
+    },
   ],
 }
