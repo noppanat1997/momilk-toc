@@ -139,7 +139,6 @@ export function initDiagram() {
       new go.Binding("stroke", "color"),
       new go.Binding("fill", "color")
     ),
-
     $(
       go.TextBlock,
       {
