@@ -1,5 +1,6 @@
 import "./Panel.scoped.css"
 import { useState } from "react"
+import { Modal } from "../Modal"
 import arrowRight from "../../img/arrowRight.png"
 import arrowLeft from "../../img/arrowLeft.png"
 import base from "../../img/base.png"
@@ -14,6 +15,7 @@ import x from "../../img/x.png"
 function Panel({ addInput, display, setDisplay, updateQueryString }) {
   const page = ["size", "topping", "sugar"]
   const [numPage, setNumPage] = useState(0)
+  const modal = Modal.useModal()
 
   const setSize = (size) => {
     if (display.end) return
@@ -168,58 +170,65 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
   }
 
   return (
-    <div className="box">
-      {numPage === 0 ? (
-        <div className="boxArrow">
-          <img className="arrow SaSp-arrow" src={arrowLeft} alt="left" />
-        </div>
-      ) : (
-        <div
-          className="boxArrow pointer pointer-big"
-          onClick={() => {
-            if (numPage > 0) {
-              setNumPage(numPage - 1)
-            } else {
-              setNumPage(0)
-            }
-          }}
-        >
-          <img className="arrow" src={arrowLeft} alt="left" />
-        </div>
-      )}
+    <>
+      <div className="box">
+        {numPage === 0 ? (
+          <div className="boxArrow">
+            <img className="arrow SaSp-arrow" src={arrowLeft} alt="left" />
+          </div>
+        ) : (
+          <div
+            className="boxArrow pointer pointer-big"
+            onClick={() => {
+              if (numPage > 0) {
+                setNumPage(numPage - 1)
+              } else {
+                setNumPage(0)
+              }
+            }}
+          >
+            <img className="arrow" src={arrowLeft} alt="left" />
+          </div>
+        )}
 
-      <div className="center">
-        <SlidePanel num={numPage} />
+        <div className="center">
+          <SlidePanel num={numPage} />
+        </div>
+
+        {numPage === 2 ? (
+          <div
+            className="boxArrow complete pointer"
+            onClick={() => {
+              updateQueryString("end", "end")
+              setDisplay((d) => ({ ...d, end: true }))
+              modal.open()
+            }}
+          >
+            <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
+            สั่งซื้อ
+          </div>
+        ) : (numPage === 0 && !display.size) || (numPage === 1 && !display.topping) ? (
+          <div className="boxArrow">
+            <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
+          </div>
+        ) : (
+          <div
+            className="boxArrow ba-right pointer pointer-big"
+            onClick={() => {
+              if (numPage < 2) {
+                setNumPage(numPage + 1)
+              }
+            }}
+          >
+            <img className="arrow" src={arrowRight} alt="right" />
+          </div>
+        )}
       </div>
-
-      {numPage === 2 ? (
-        <div
-          className="boxArrow complete pointer"
-          onClick={() => {
-            updateQueryString("end", "end")
-            setDisplay((d) => ({ ...d, end: true }))
-          }}
-        >
-          <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
-          สั่งซื้อ
-        </div>
-      ) : (numPage === 0 && !display.size) || (numPage === 1 && !display.topping) ? (
-        <div className="boxArrow">
-          <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
-        </div>
-      ) : (
-        <div
-          className="boxArrow ba-right pointer pointer-big"
-          onClick={() => {
-            if (numPage < 2) {
-              setNumPage(numPage + 1)
-            }
-          }}
-        >
-          <img className="arrow" src={arrowRight} alt="right" />
-        </div>
-      )}
-    </div>
+      <Modal modal={modal}>
+        เมนูของคุณคือ
+        <h1>ไอติมไซส์อิอิ</h1>
+      </Modal>
+    </>
   )
 }
 export default Panel

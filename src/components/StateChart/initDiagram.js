@@ -144,11 +144,11 @@ export function initDiagram() {
       {
         segmentIndex: NaN,
         segmentFraction: 0.8,
-        segmentOffset: new go.Point(0, -15),
+        segmentOffset: new go.Point(0, -25),
         textAlign: "center",
         font: "9pt Prompt, arial, sans-serif",
         margin: 4,
-        stroke: "DimGrey",
+        stroke: "#000",
       },
       // editing the text automatically updates the model data
       new go.Binding("text").makeTwoWay(),

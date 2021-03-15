@@ -11,6 +11,7 @@ import "./App.scoped.css"
 function App() {
   const history = useHistory()
   const { key, forceUpdate } = useForceUpdate()
+  const { key: panelKey, forceUpdate: forcePanelUpdate } = useForceUpdate()
   const [input, setInput] = useState([])
 
   const DEFAULT = { size: "", topping: "", milk: "" }
@@ -26,7 +27,7 @@ function App() {
   function resetState() {
     setDisplay(DEFAULT)
     history.push("/state?current=start")
-    forceUpdate()
+    forcePanelUpdate()
   }
 
   function updateQueryString(key, value) {
@@ -47,11 +48,16 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    forceUpdate()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [display])
+
   return (
     <div className="page">
       <img src={cream} alt="cream" className="cream" />
       <div className="state">
-        <StateChart />
+        <StateChart key={key} />
       </div>
       <div className="tape-wrapper">
         <div className="tape">
@@ -63,7 +69,7 @@ function App() {
       </div>
       <div className="panel">
         <Panel
-          key={key}
+          key={panelKey}
           addInput={addInput}
           display={display}
           setDisplay={setDisplay}
