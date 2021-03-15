@@ -7,9 +7,11 @@ import StateChart from "./components/StateChart"
 import Panel from "./components/Panel"
 import cream from "./img/cream.png"
 import "./App.scoped.css"
+import { Modal } from "./components/Modal"
 
 function App() {
   const history = useHistory()
+  const modal = Modal.useModal()
   const { key, forceUpdate } = useForceUpdate()
   const { key: panelKey, forceUpdate: forcePanelUpdate } = useForceUpdate()
   const [input, setInput] = useState([])
@@ -32,6 +34,7 @@ function App() {
 
   function updateQueryString(key, value) {
     if (display.end) return history.push(`/state?current=trap`)
+    if (key === "end") return history.push(`/state?current=end`)
 
     const { size, topping, milk } = display
     const sizeQuery = key === "size" ? value : size
@@ -57,6 +60,7 @@ function App() {
     <div className="page">
       <img src={cream} alt="cream" className="cream" />
       <div className="state">
+        <div className="cp" onClick={modal.open} />
         <StateChart key={key} />
       </div>
       <div className="tape-wrapper">
@@ -76,6 +80,51 @@ function App() {
           updateQueryString={updateQueryString}
         />
       </div>
+      <button className="member" onClick={modal.open}>
+        รายชื่อสมาชิก
+      </button>
+      <Modal modal={modal}>
+        <h1 style={{ marginBottom: "1.25rem" }}>รายชื่อสมาชิก</h1>
+        <table className="member-list">
+          <tbody>
+            <tr>
+              <td style={{ paddingRight: "1rem" }}>61010193</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>นายชนัสพงศ์</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>พรหมสินธุ์</td>
+            </tr>
+            <tr>
+              <td style={{ paddingRight: "1rem" }}>61010416</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>นายธนกฤต</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>เจริญบูลย์วิวัฒน์</td>
+            </tr>
+            <tr>
+              <td style={{ paddingRight: "1rem" }}>61010479</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>นางสาวธมน</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>เนตรวิเชียร</td>
+            </tr>
+            <tr>
+              <td style={{ paddingRight: "1rem" }}>61010497</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>นายธัญธร</td>{" "}
+              <td style={{ paddingRight: "1rem" }}>พรสวัสดิ์ชัย</td>
+            </tr>
+            <tr>
+              <td style={{ marginRight: ".5rem" }}>61010541</td>{" "}
+              <td style={{ marginRight: ".5rem" }}>นายนพณัฐ</td>{" "}
+              <td style={{ marginRight: ".5rem" }}>พันลุตัน</td>
+            </tr>
+            <tr>
+              <td style={{ marginRight: ".5rem" }}>61010750</td>{" "}
+              <td style={{ marginRight: ".5rem" }}>นายพิพิธพงศ์</td>{" "}
+              <td style={{ marginRight: ".5rem" }}>จิตภักดิ์ไทย</td>
+            </tr>
+            <tr>
+              <td style={{ marginRight: ".5rem" }}>61011387</td>{" "}
+              <td style={{ marginRight: ".5rem" }}>นายธนภัทร</td>{" "}
+              <td style={{ marginRight: ".5rem" }}>ด่านพัฒนชัยกุล</td>
+            </tr>
+          </tbody>
+        </table>
+      </Modal>
     </div>
   )
 }

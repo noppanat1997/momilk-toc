@@ -1,6 +1,7 @@
 import "./Panel.scoped.css"
 import { useState } from "react"
 import { Modal } from "../Modal"
+import { INITIAL_STATE_DATA } from "../../constants/stateData"
 import arrowRight from "../../img/arrowRight.png"
 import arrowLeft from "../../img/arrowLeft.png"
 import base from "../../img/base.png"
@@ -11,6 +12,7 @@ import sugar from "../../img/sugar.png"
 
 import check from "../../img/check.png"
 import x from "../../img/x.png"
+import Display from "../Display"
 
 function Panel({ addInput, display, setDisplay, updateQueryString }) {
   const page = ["size", "topping", "sugar"]
@@ -28,6 +30,14 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
   const setMilk = (milk) => {
     if (display.end) return
     setDisplay((d) => ({ ...d, milk }))
+  }
+
+  const menuResult = () => {
+    const { size, topping, milk } = display
+    const queryArray = [size, topping, milk]
+    const query = queryArray.filter((q) => q.length).join("_")
+    const node = INITIAL_STATE_DATA.nodeDataArray.find((n) => n.value === query) || {}
+    return node.text?.replaceAll("\n", "") || ""
   }
 
   const SlidePanel = ({ num }) => {
@@ -82,8 +92,10 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
                 className="brownie pointer"
                 onClick={() => {
                   addInput("บราวนี่")
-                  setTopping("brownie")
-                  updateQueryString("topping", "brownie")
+                  if (display.size) {
+                    setTopping("brownie")
+                    updateQueryString("topping", "brownie")
+                  }
                 }}
               >
                 <div className="toppingBrownie">
@@ -98,8 +110,10 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
                 className="banana pointer"
                 onClick={() => {
                   addInput("กล้วย")
-                  setTopping("banana")
-                  updateQueryString("topping", "banana")
+                  if (display.size) {
+                    setTopping("banana")
+                    updateQueryString("topping", "banana")
+                  }
                 }}
               >
                 <div className="toppingBanana">
@@ -114,8 +128,10 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
                 className="cereal pointer"
                 onClick={() => {
                   addInput("คอนเฟลก")
-                  setTopping("cereal")
-                  updateQueryString("topping", "cereal")
+                  if (display.size) {
+                    setTopping("cereal")
+                    updateQueryString("topping", "cereal")
+                  }
                 }}
               >
                 <div className="toppingCereal">
@@ -137,8 +153,10 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
                 className="normalSugar pointer"
                 onClick={() => {
                   addInput("ใส่นม")
-                  setMilk("milk")
-                  updateQueryString("milk", "milk")
+                  if (display.topping) {
+                    setMilk("milk")
+                    updateQueryString("milk", "milk")
+                  }
                 }}
               >
                 <div className="normalPic">
@@ -151,8 +169,10 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
                 className="noSugar pointer"
                 onClick={() => {
                   addInput("ไม่ใส่นม")
-                  setMilk("")
-                  updateQueryString("milk", "")
+                  if (display.topping) {
+                    setMilk("")
+                    updateQueryString("milk", "")
+                  }
                 }}
               >
                 <div className="noSugarPic">
@@ -199,17 +219,16 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
           <div
             className="boxArrow complete pointer"
             onClick={() => {
-              updateQueryString("end", "end")
-              setDisplay((d) => ({ ...d, end: true }))
-              modal.open()
+              addInput("สั่งซื้อ")
+              if (display.size && display.topping) {
+                updateQueryString("end", "end")
+                setDisplay((d) => ({ ...d, end: true }))
+                modal.open()
+              }
             }}
           >
             <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
             สั่งซื้อ
-          </div>
-        ) : (numPage === 0 && !display.size) || (numPage === 1 && !display.topping) ? (
-          <div className="boxArrow">
-            <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
           </div>
         ) : (
           <div
@@ -225,8 +244,13 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
         )}
       </div>
       <Modal modal={modal}>
-        เมนูของคุณคือ
-        <h1>ไอติมไซส์อิอิ</h1>
+        <div className="modal-text">
+          <div>
+            <Display {...display} />
+          </div>
+          <div style={{ fontSize: "1.5rem", marginTop: "2rem" }}>เมนูของคุณคือ</div>
+          <h1>ไอติม{menuResult()}</h1>
+        </div>
       </Modal>
     </>
   )

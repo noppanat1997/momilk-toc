@@ -370,3 +370,9 @@
 .complete:hover {
     background: #34D399;
 }
+
+
+.modal-text {
+    text-align: center;
+    font-size: 125%;
+}

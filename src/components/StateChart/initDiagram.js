@@ -27,7 +27,7 @@ export function initDiagram() {
     go.Node,
     "Auto", // the Shape will go around the TextBlock
     { locationSpot: go.Spot.Center },
-    { desiredSize: new go.Size(80, 80) },
+    { desiredSize: new go.Size(90, 90) },
     new go.Binding("location", "loc", go.Point.parse),
     $(
       go.Shape,
@@ -53,7 +53,7 @@ export function initDiagram() {
       go.Node,
       "Spot",
       { locationSpot: go.Spot.Center },
-      { desiredSize: new go.Size(75, 75) },
+      { desiredSize: new go.Size(90, 90) },
       new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
       $(
         go.Shape,
@@ -88,7 +88,7 @@ export function initDiagram() {
       go.Node,
       "Spot",
       { locationSpot: go.Spot.Center },
-      { desiredSize: new go.Size(75, 75) },
+      { desiredSize: new go.Size(90, 90) },
       new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
       $(
         go.Shape,
@@ -108,7 +108,7 @@ export function initDiagram() {
       ),
       $(go.Shape, "Circle", {
         fill: null,
-        desiredSize: new go.Size(65, 65),
+        desiredSize: new go.Size(80, 80),
         strokeWidth: 2,
         stroke: "whitesmoke",
       }),
@@ -119,6 +119,33 @@ export function initDiagram() {
           font: "16pt Prompt, arial, sans-serif",
         },
         new go.Binding("stroke", "color")
+      )
+    )
+  )
+
+  diagram.nodeTemplateMap.add(
+    "Trap",
+    $(
+      go.Node,
+      "Auto", // the Shape will go around the TextBlock
+      { locationSpot: go.Spot.Center },
+      { desiredSize: new go.Size(90, 90) },
+      new go.Binding("location", "loc", go.Point.parse),
+      $(
+        go.Shape,
+        "Circle",
+        { name: "SHAPE", fill: "white", strokeWidth: 0 },
+        // Shape.fill is bound to Node.data.color
+        new go.Binding("fill", "fill")
+      ),
+      $(
+        go.TextBlock,
+        {
+          font: "16pt Prompt, arial, sans-serif",
+        },
+        { editable: false, overflow: go.TextBlock.OverflowClip }, // some room around the text
+        new go.Binding("stroke", "color"),
+        new go.Binding("text").makeTwoWay()
       )
     )
   )
