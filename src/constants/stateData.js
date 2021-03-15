@@ -173,7 +173,7 @@ export const INITIAL_STATE_DATA = {
       visible: false,
       text: "ขนาดเล็ก,ใส่นม,สั่งซื้อ",
     },
-    { key: -10, from: 1, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -10, from: 1, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
 
     //OutLargeSize Node
     { key: -11, from: 2, to: 1, color: "white", zOrder: 1, visible: false, text: "ขนาดเล็ก" },
@@ -189,7 +189,7 @@ export const INITIAL_STATE_DATA = {
       visible: false,
       text: "ขนาดใหญ่,ใส่นม,สั่งซื้อ",
     },
-    { key: -16, from: 2, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -16, from: 2, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
 
     //OutSmallBrownie Node
     { key: -17, from: 3, to: 4, color: "white", zOrder: 1, visible: false, text: "กล้วย" },
@@ -206,7 +206,7 @@ export const INITIAL_STATE_DATA = {
     { key: -20, from: 3, to: 9, color: "white", zOrder: 1, visible: false, text: "ใส่นม" },
     { key: -21, from: 3, to: 6, color: "white", zOrder: 1, visible: false, text: "ขนาดใหญ่" },
     { key: -22, from: 3, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
-    { key: -23, from: 3, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -23, from: 3, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
 
     //OutSmallBanana Node
     { key: -24, from: 4, to: 3, color: "white", zOrder: 1, visible: false, text: "บราวนี่" },
@@ -214,7 +214,7 @@ export const INITIAL_STATE_DATA = {
     { key: -26, from: 4, to: 7, color: "white", zOrder: 1, visible: false, text: "ขนาดใหญ่" },
     { key: -27, from: 4, to: 4, color: "white", zOrder: 1, visible: false, text: "กล้วย,ขนาดเล็ก" },
     { key: -28, from: 4, to: 10, color: "white", zOrder: 1, visible: false, text: "ใส่นม" },
-    { key: -29, from: 4, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -29, from: 4, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -30, from: 4, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
 
     //OutSmallConflex Node
@@ -232,7 +232,7 @@ export const INITIAL_STATE_DATA = {
     },
     { key: -35, from: 5, to: 11, color: "white", zOrder: 1, visible: false, text: "ใส่นม" },
     { key: -36, from: 5, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
-    { key: -37, from: 5, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -37, from: 5, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
 
     //OutLargeBrownie Node
     { key: -38, from: 6, to: 7, color: "white", zOrder: 1, visible: false, text: "กล้วย" },
@@ -249,7 +249,7 @@ export const INITIAL_STATE_DATA = {
     },
     { key: -42, from: 6, to: 12, color: "white", zOrder: 1, visible: false, text: "ใส่นม" },
     { key: -43, from: 6, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
-    { key: -44, from: 6, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -44, from: 6, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
 
     //OutLargeBanana Node
     { key: -45, from: 7, to: 6, color: "white", zOrder: 1, visible: false, text: "บราวนี่" },
@@ -258,7 +258,7 @@ export const INITIAL_STATE_DATA = {
     { key: -48, from: 7, to: 7, color: "white", zOrder: 1, visible: false, text: "กล้วย,ขนาดใหญ่" },
     { key: -49, from: 7, to: 13, color: "white", zOrder: 1, visible: false, text: "ใส่นม" },
     { key: -50, from: 7, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
-    { key: -51, from: 7, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -51, from: 7, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
 
     //OutLargeConflex Node
     { key: -52, from: 8, to: 6, color: "white", zOrder: 1, visible: false, text: "บราวนี่" },
@@ -274,12 +274,12 @@ export const INITIAL_STATE_DATA = {
       text: "คอนเฟรก,ขนาดใหญ่",
     },
     { key: -56, from: 8, to: 14, color: "white", zOrder: 1, visible: false, text: "ใส่นม" },
-    { key: -57, from: 8, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -57, from: 8, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -58, from: 8, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
 
     //OutSmallBrownieWithMilk Node
     { key: -59, from: 9, to: 3, color: "white", zOrder: 1, visible: false, text: "ไม่ใส่นม" },
-    { key: -60, from: 9, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -60, from: 9, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -61, from: 9, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
     { key: -62, from: 9, to: 10, color: "white", zOrder: 1, visible: false, text: "กล้วย" },
     { key: -63, from: 9, to: 11, color: "white", zOrder: 1, visible: false, text: "คอนเฟรก" },
@@ -296,7 +296,7 @@ export const INITIAL_STATE_DATA = {
 
     //OutSmallBananaWithMilk Node
     { key: -66, from: 10, to: 4, color: "white", zOrder: 1, visible: false, text: "ไม่ใส่นม" },
-    { key: -67, from: 10, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -67, from: 10, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -68, from: 10, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
     { key: -69, from: 10, to: 9, color: "white", zOrder: 1, visible: false, text: "บราวนี่" },
     { key: -70, from: 10, to: 11, color: "white", zOrder: 1, visible: false, text: "คอนเฟรก" },
@@ -313,7 +313,7 @@ export const INITIAL_STATE_DATA = {
 
     //OutSmallConflexWithMilk Node
     { key: -73, from: 11, to: 5, color: "white", zOrder: 1, visible: false, text: "ไม่ใส่นม" },
-    { key: -74, from: 11, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -74, from: 11, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -75, from: 11, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
     { key: -76, from: 11, to: 9, color: "white", zOrder: 1, visible: false, text: "บราวนี่" },
     { key: -77, from: 11, to: 10, color: "white", zOrder: 1, visible: false, text: "กล้วย" },
@@ -330,7 +330,7 @@ export const INITIAL_STATE_DATA = {
 
     //OutLargeBrownieWithMilk Node
     { key: -80, from: 12, to: 6, color: "white", zOrder: 1, visible: false, text: "ไม่ใส่นม" },
-    { key: -81, from: 12, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -81, from: 12, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -82, from: 12, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
     { key: -83, from: 12, to: 9, color: "white", zOrder: 1, visible: false, text: "ขนาดเล็ก" },
     { key: -84, from: 12, to: 13, color: "white", zOrder: 1, visible: false, text: "กล้วย" },
@@ -347,7 +347,7 @@ export const INITIAL_STATE_DATA = {
 
     //OutLargeBananaWithMilk Node
     { key: -87, from: 13, to: 7, color: "white", zOrder: 1, visible: false, text: "ไม่ใส่นม" },
-    { key: -88, from: 13, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -88, from: 13, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -89, from: 13, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
     { key: -90, from: 13, to: 10, color: "white", zOrder: 1, visible: false, text: "ขนาดเล็ก" },
     { key: -91, from: 13, to: 12, color: "white", zOrder: 1, visible: false, text: "บราวนี่" },
@@ -364,7 +364,7 @@ export const INITIAL_STATE_DATA = {
 
     //OutLargeConflexWithMilk Node 14
     { key: -94, from: 14, to: 8, color: "white", zOrder: 1, visible: false, text: "ไม่ใส่นม" },
-    { key: -95, from: 14, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -95, from: 14, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     { key: -96, from: 14, to: 15, color: "white", zOrder: 1, visible: false, text: "สั่งซื้อ" },
     { key: -97, from: 14, to: 11, color: "white", zOrder: 1, visible: false, text: "ขนาดเล็ก" },
     { key: -98, from: 14, to: 12, color: "white", zOrder: 1, visible: false, text: "บราวนี่" },
@@ -380,7 +380,7 @@ export const INITIAL_STATE_DATA = {
     },
 
     //สั่งซื้อ Node
-    { key: -101, from: 15, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -101, from: 15, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     {
       key: -102,
       from: 15,
@@ -391,7 +391,7 @@ export const INITIAL_STATE_DATA = {
       text: "ขนาดเล็ก,ขนาดใหญ่,บราวนี่,กล้วย,คอนเฟรก,ใส่นม,สั่งซื้อ",
     },
     //Trap Node
-    { key: -103, from: 16, to: 0, color: "white", zOrder: 1, visible: false, text: "Reset" },
+    { key: -103, from: 16, to: 0, color: "white", zOrder: 1, visible: false, text: "รีเซ็ต" },
     {
       key: -104,
       from: 16,
