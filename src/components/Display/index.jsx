@@ -10,15 +10,6 @@ import cereal from "../../img/cereal.png"
 import cow from "../../img/cow.png"
 
 function Display({ size, topping, milk }) {
-  const SIZE_PROPS = [undefined, "s", "l"]
-  const TOPPING_PROPS = [undefined, "brownie", "banana", "cereal"]
-
-  if (!SIZE_PROPS.includes(size))
-    throw new Error(`<Display /> props "size" can only be "${SIZE_PROPS}"`)
-
-  if (!TOPPING_PROPS.includes(topping))
-    throw new Error(`<Display /> props "topping" can only be "${TOPPING_PROPS}"`)
-
   return (
     <div className="container">
       <div className={`cup ${size || "s"}`}>
@@ -35,19 +26,19 @@ function Display({ size, topping, milk }) {
         )}
         {/* Topping */}
         <div className="base topping">
-          {topping === "brownie" && (
+          {topping.includes("brownie") && (
             <>
               <img className="base" src={brownie} alt="brownie" />
               <img className="base" src={brownie} alt="brownie" />
             </>
           )}
-          {topping === "banana" && (
+          {topping.includes("banana") && (
             <>
               <img className="base banana" src={banana} alt="banana" />
               <img className="base banana" src={banana} alt="banana" />
             </>
           )}
-          {topping === "cereal" && (
+          {topping.includes("cereal") && (
             <>
               <img className="base cereal" src={cereal} alt="cereal" />
               <img className="base cereal" src={cereal} alt="cereal" />

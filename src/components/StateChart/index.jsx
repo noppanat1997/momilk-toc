@@ -9,7 +9,7 @@ import { initDiagram } from "./initDiagram"
 import "./stateChart.css"
 //constants
 import { INITIAL_STATE_DATA } from "../../constants/stateData"
-import useForceUpdate from "./useForceUpdate"
+import useForceUpdate from "../../hooks/useForceUpdate"
 
 function StateChart() {
   const { key, forceUpdate } = useForceUpdate()
@@ -36,7 +36,7 @@ function StateChart() {
   )
 
   useEffect(() => {
-    const queryObject = queryString.parse(location.search)
+    const queryObject = queryString.parse(location.search) || {}
     if (Object.keys(queryObject).length > 0) {
       updatedNodeDataHandler(queryObject)
     } else {
@@ -50,12 +50,12 @@ function StateChart() {
   }, [location.search])
 
   const updatedNodeDataHandler = (queryObject) => {
-    if (queryObject.size) {
+    Object.keys(queryObject).forEach((key) => {
       const updatedNodeData = INITIAL_STATE_DATA.nodeDataArray.map((node) => {
         /**
          * found node value equal to query
          */
-        if (node.value === queryObject.size) {
+        if (node.value === queryObject[key]) {
           const updatedLinkData = INITIAL_STATE_DATA.linkDataArray.map((link) => {
             if (link.from === node.key) {
               return {
@@ -83,7 +83,7 @@ function StateChart() {
         }
       })
       setNodeData(updatedNodeData)
-    }
+    })
   }
 
   return (

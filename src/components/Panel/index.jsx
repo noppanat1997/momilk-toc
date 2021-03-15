@@ -11,13 +11,22 @@ import sugar from "../../img/sugar.png"
 import check from "../../img/check.png"
 import x from "../../img/x.png"
 
-function Panel({ addInput, display, setDisplay }) {
+function Panel({ addInput, display, setDisplay, updateQueryString }) {
   const page = ["size", "topping", "sugar"]
   const [numPage, setNumPage] = useState(0)
 
-  const setSize = (size) => setDisplay((d) => ({ ...d, size }))
-  const setTopping = (topping) => setDisplay((d) => ({ ...d, topping }))
-  const setMilk = (milk) => setDisplay((d) => ({ ...d, milk }))
+  const setSize = (size) => {
+    if (display.end) return
+    setDisplay((d) => ({ ...d, size }))
+  }
+  const setTopping = (topping) => {
+    if (display.end) return
+    setDisplay((d) => ({ ...d, topping }))
+  }
+  const setMilk = (milk) => {
+    if (display.end) return
+    setDisplay((d) => ({ ...d, milk }))
+  }
 
   const SlidePanel = ({ num }) => {
     return (
@@ -31,6 +40,7 @@ function Panel({ addInput, display, setDisplay }) {
                 onClick={() => {
                   addInput("ขนาดเล็ก")
                   setSize("s")
+                  updateQueryString("size", "s")
                 }}
               >
                 <div className="base-s">
@@ -50,6 +60,7 @@ function Panel({ addInput, display, setDisplay }) {
                 onClick={() => {
                   addInput("ขนาดใหญ่")
                   setSize("l")
+                  updateQueryString("size", "l")
                 }}
               >
                 <div className="base-l">
@@ -70,11 +81,12 @@ function Panel({ addInput, display, setDisplay }) {
                 onClick={() => {
                   addInput("บราวนี่")
                   setTopping("brownie")
+                  updateQueryString("topping", "brownie")
                 }}
               >
                 <div className="toppingBrownie">
                   <img src={brownie} alt="Brownie" width="130" height="99" />
-                  {display.topping === "brownie" && (
+                  {display.topping.includes("brownie") && (
                     <img className="check" src={check} alt="check" />
                   )}
                 </div>
@@ -85,11 +97,12 @@ function Panel({ addInput, display, setDisplay }) {
                 onClick={() => {
                   addInput("กล้วย")
                   setTopping("banana")
+                  updateQueryString("topping", "banana")
                 }}
               >
                 <div className="toppingBanana">
                   <img src={banana} alt="Banana" width="130" height="99" />
-                  {display.topping === "banana" && (
+                  {display.topping.includes("banana") && (
                     <img className="check" src={check} alt="check" />
                   )}
                 </div>
@@ -100,11 +113,12 @@ function Panel({ addInput, display, setDisplay }) {
                 onClick={() => {
                   addInput("คอนเฟลก")
                   setTopping("cereal")
+                  updateQueryString("topping", "cereal")
                 }}
               >
                 <div className="toppingCereal">
                   <img src={cereal} alt="Cereal" width="130" height="99" />
-                  {display.topping === "cereal" && (
+                  {display.topping.includes("cereal") && (
                     <img className="check" src={check} alt="check" />
                   )}
                 </div>
@@ -121,7 +135,8 @@ function Panel({ addInput, display, setDisplay }) {
                 className="normalSugar pointer"
                 onClick={() => {
                   addInput("ใส่นม")
-                  setMilk(true)
+                  setMilk("milk")
+                  updateQueryString("milk", "milk")
                 }}
               >
                 <div className="normalPic">
@@ -134,7 +149,8 @@ function Panel({ addInput, display, setDisplay }) {
                 className="noSugar pointer"
                 onClick={() => {
                   addInput("ไม่ใส่นม")
-                  setMilk(false)
+                  setMilk("")
+                  updateQueryString("milk", "")
                 }}
               >
                 <div className="noSugarPic">
@@ -177,9 +193,19 @@ function Panel({ addInput, display, setDisplay }) {
       </div>
 
       {numPage === 2 ? (
-        <div className="boxArrow complete pointer">
+        <div
+          className="boxArrow complete pointer"
+          onClick={() => {
+            updateQueryString("end", "end")
+            setDisplay((d) => ({ ...d, end: true }))
+          }}
+        >
           <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
           สั่งซื้อ
+        </div>
+      ) : (numPage === 0 && !display.size) || (numPage === 1 && !display.topping) ? (
+        <div className="boxArrow">
+          <img className="arrow SaSp-arrow finish-arrow" src={arrowRight} alt="right" />
         </div>
       ) : (
         <div

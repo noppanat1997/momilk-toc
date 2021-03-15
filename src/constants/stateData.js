@@ -80,7 +80,7 @@ export const INITIAL_STATE_DATA = {
     },
     {
       key: 9,
-      value: "s_lessSugar",
+      value: "s_brownie_milk",
       text: "ขนาดเล็ก\nบราวนี่\nใส่นม",
       fill: "Silver",
       color: "white",
@@ -88,7 +88,7 @@ export const INITIAL_STATE_DATA = {
     },
     {
       key: 10,
-      value: "s_extraSugar",
+      value: "s_banana_milk",
       text: "ขนาดเล็ก\nกล้วย\nใส่นม",
       fill: "Silver",
       color: "white",
@@ -96,7 +96,7 @@ export const INITIAL_STATE_DATA = {
     },
     {
       key: 11,
-      value: "s_extraSugar",
+      value: "s_cereal_milk",
       text: "ขนาดเล็ก\nคอนเฟรก\nใส่นม",
       fill: "Silver",
       color: "white",
@@ -104,7 +104,7 @@ export const INITIAL_STATE_DATA = {
     },
     {
       key: 12,
-      value: "l_lessSugar",
+      value: "l_brownie_milk",
       text: "ขนาดใหญ่\nบราวนี่\nใส่นม",
       fill: "Silver",
       color: "white",
@@ -112,7 +112,7 @@ export const INITIAL_STATE_DATA = {
     },
     {
       key: 13,
-      value: "l_extraSugar",
+      value: "l_banana_milk",
       text: "ขนาดใหญ่\nกล้วย\nใส่นม",
       fill: "Silver",
       color: "white",
@@ -120,7 +120,7 @@ export const INITIAL_STATE_DATA = {
     },
     {
       key: 14,
-      value: "l_extraSugar",
+      value: "l_cereal_milk",
       text: "ขนาดเล็ก\nคอนเฟรก\nใส่นม",
       fill: "Silver",
       color: "white",
