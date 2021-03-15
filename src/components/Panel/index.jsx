@@ -10,11 +10,12 @@ import cash from "../../img/cash.png"
 import eBank from "../../img/prompt.png"
 import half from "../../img/halfhalf.png"
 import sugar from "../../img/sugar.png"
+import x from "../../img/x.png"
 import { useHistory } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function Panel({ addInput }) {
-  const page = ["size", "topping", "sugar", "pay"]
+  const page = ["size", "topping", "sugar"]
   const [numPage, setNumPage] = useState(0)
   const [state, setState] = useState({})
   const history = useHistory()
@@ -34,15 +35,24 @@ function Panel({ addInput }) {
           <div className="size">
             <div className="topic">เลือกขนาด</div>
             <div className="base">
-              <img
-                className="base-s"
-                src={base}
-                alt="Size S"
+              <div className="size-s"
                 onClick={() => {
                   addInput("ขนาดเล็ก")
                   setState({ ...state, size: "l_cereal" })
                 }}
-              />
+              >
+                <div className="base-s">
+                  <img
+                    // className="base-s"
+                    src={base}
+                    alt="Size S"
+                    width="110" 
+                    height="88"
+                  />
+                </div>
+                <div className="descript"> เล็ก </div>
+              </div>
+
               {/* <img
                 className="base-m"
                 src={base}
@@ -52,70 +62,81 @@ function Panel({ addInput }) {
                   setState({ ...state, size: "m" })
                 }}
               /> */}
-              <img
-                className="base-l"
-                src={base}
-                alt="Size L"
-                onClick={() => {
-                  addInput("ขนาดใหญ่")
-                  setState({ ...state, size: "l" })
-                }}
-              />
-            </div>
-            <div className="sizeDescript">
-              <div
-                onClick={() => {
-                  addInput("ขนาดเล็ก")
-                  setState({ ...state, size: "s" })
-                }}
-              >
-                เล็ก
-              </div>
-              <div
+
+              <div className="size-l"
                 onClick={() => {
                   addInput("ขนาดใหญ่")
                   setState({ ...state, size: "l" })
                 }}
               >
-                ใหญ่
+                <img
+                  className="base-l"
+                  src={base}
+                  alt="Size L"
+                />
+                <div className="descript"> ใหญ่ </div>
               </div>
             </div>
           </div>
         )}
         {num === 1 && (
           <div className="topping">
-            <div className="topic">เลือก Topping (0/3)</div>
+            <div className="topic">เลือก Topping</div>
             <div className="base">
-              <img
-                className="topping12"
-                src={brownie}
-                alt="Brownie"
-                onClick={() => setState({ ...state, topping1: "brownie" })}
-              />
-              <img
-                className="topping12"
-                src={banana}
-                alt="Banana"
-                onClick={() => setState({ ...state, topping1: "banana" })}
-              />
-              <img
+              <div className="brownie" 
+                onClick={() => {
+                  addInput("บราวนี่")
+                  setState({ ...state, topping1: "brownie" })
+                }}
+              >
+                <div className="toppingBrownie">
+                  <img
+                    src={brownie}
+                    alt="Brownie"
+                    width="130" 
+                    height="99"
+                  />
+                </div>
+                <div className="descript">บราวนี่</div>
+              </div>
+              <div className="banana" 
+                onClick={() => {
+                  addInput("กล้วย")
+                  setState({ ...state, topping1: "banana" })
+                }}
+              >
+                <div className="toppingBanana">
+                  <img
+                    src={banana}
+                    alt="Banana"
+                    width="130" 
+                    height="99"
+                  />
+                </div>
+                <div className="descript">กล้วย</div>
+              </div>
+              {/* <img
                 className="topping34"
                 src={strawberry}
                 alt="Strawberry"
                 onClick={() => setState({ ...state, topping1: "strawberry" })}
-              />
-              <img
-                className="topping34"
-                src={cereal}
-                alt="Cereal"
-                onClick={() => setState({ ...state, topping1: "cereal" })}
-              />
-            </div>
-            <div className="toppingDescript">
-              <div onClick={() => setState({ ...state, topping1: "brownie" })}>บราวนี่</div>
-              <div onClick={() => setState({ ...state, topping1: "banana" })}>กล้วย</div>
-              <div onClick={() => setState({ ...state, topping1: "strawberry" })}>สตอเบอรี่</div>
-              <div onClick={() => setState({ ...state, topping1: "cereal" })}>คอนเฟลก</div>
+              /> */}
+              <div className="cereal" 
+                onClick={() => {
+                  addInput("คอนเฟลก")
+                  setState({ ...state, topping1: "cereal" })
+                }}
+              >
+                <div className="toppingCereal">
+                  <img
+                    src={cereal}
+                    alt="Cereal"
+                    width="130" 
+                    height="99"
+                  />
+                </div>
+                <div className="descript">คอนเฟลก</div>
+              </div>
             </div>
           </div>
         )}
@@ -123,25 +144,45 @@ function Panel({ addInput }) {
           <div className="sugar">
             <div className="topic">เลือกความหวาน</div>
             <div className="base">
-              <img className="lessSugar" src={sugar} alt="Less Sugar" />
-              <div className="normalSugar">
-                <img src={sugar} alt="Normal Sugar" />
-                <img src={sugar} alt="Normal Sugar" />
+              <div className="normalSugar" 
+                onClick={() => {
+                  addInput("ใส่นม")
+                }}
+              >
+                <div className="normalPic">
+                  <img
+                    src={sugar}
+                    alt="Sugar"
+                    width="130" 
+                    height="100"
+                  />
+                </div>
+                <div className="descript">ใส่นมข้น</div>
               </div>
-              <div className="moreSugar">
-                <img src={sugar} alt="More Sugar" />
-                <img src={sugar} alt="More Sugar" />
-                <img src={sugar} alt="More Sugar" />
+              <div className="noSugar" 
+                onClick={() => {
+                  addInput("ไม่ใส่นม")
+                }}
+              >
+                <div className="noSugarPic">
+                  <img
+                    src={sugar}
+                    alt="Sugar"
+                    width="130" 
+                    height="100"
+                  />
+                  <img src={x} 
+                    alt="X"
+                    width="100" 
+                    height="100"
+                  />
+                </div>
+                <div className="descript">ไม่ใส่นมข้น</div>
               </div>
-            </div>
-            <div className="sugarDescript">
-              <div>หวานน้อย</div>
-              <div>หวานปกติ</div>
-              <div>หวานมาก</div>
             </div>
           </div>
         )}
-        {num === 3 && (
+        {/* {num === 3 && (
           <div className="pay">
             <div className="topic">เลือกวิธีชำระเงิน</div>
             <div className="base">
@@ -155,7 +196,7 @@ function Panel({ addInput }) {
               <div>คนละครึ่ง</div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     )
   }
@@ -185,7 +226,7 @@ function Panel({ addInput }) {
         <SlidePanel num={numPage} />
       </div>
 
-      {numPage === 3 ? (
+      {numPage === 2 ? (
         <div className="boxArrow">
           <img className="arrow SaSp-arrow" src={arrowRight} />
         </div>
@@ -193,7 +234,7 @@ function Panel({ addInput }) {
         <div
           className="boxArrow"
           onClick={() => {
-            if (numPage < 3) {
+            if (numPage < 2) {
               setNumPage(numPage + 1)
             }
           }}
