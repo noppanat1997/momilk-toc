@@ -17,10 +17,6 @@ function App() {
     element.scrollTo({ left: maxScrollLeft, behavior: "smooth" })
   }
 
-  const setSize = (size) => setDisplay((d) => ({ ...d, size }))
-  const setTopping = (topping) => setDisplay((d) => ({ ...d, topping }))
-  const setMilk = (milk) => setDisplay((d) => ({ ...d, milk }))
-
   return (
     <div className="page">
       <img src={cream} alt="cream" className="cream" />
@@ -29,21 +25,15 @@ function App() {
       </div>
       <div className="tape-wrapper">
         <div className="tape">
-          <InputTape data={input} setData={setInput} />
+          <InputTape data={input} setData={setInput} onReset={() => setDisplay({})} />
         </div>
       </div>
       <div className="display">
-        <Display size={display.size} topping={display.topping} />
+        <Display size={display.size} topping={display.topping} milk={display.milk} />
       </div>
       <div className="panel">
-        <Panel addInput={addInput} />
+        <Panel addInput={addInput} display={display} setDisplay={setDisplay} />
       </div>
-      {/* <button
-        style={{ position: "absolute", bottom: "2rem", right: "2rem" }}
-        onClick={() => addInput(`ทดสอบ ${input.length + 1}`)}
-      >
-        Add Stage
-      </button> */}
     </div>
   )
 }

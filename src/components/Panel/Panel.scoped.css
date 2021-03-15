@@ -8,12 +8,19 @@
     /* width: 100%; */
 }
 .boxArrow{
-    background:white;
+    background: linear-gradient(white);
     height: 100%;
     width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .2s;
+}
+.pointer {
+    cursor: pointer;
+}
+.pointer-big:hover {
+    transform: scale(1.2);
 }
 .positionRightArrow{
    transform: translateX(5px);
@@ -88,6 +95,7 @@
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 8px;
+    position: relative;
 }
 .base-l{
     width: 179px;
@@ -96,6 +104,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .topping{
     background:white;
@@ -127,6 +136,7 @@
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 8px;
+    position: relative;
 }
 .banana {
     width: 150px;
@@ -149,6 +159,7 @@
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 8px;
+    position: relative;
 }
 .cereal {
     width: 150px;
@@ -171,6 +182,7 @@
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 8px;
+    position: relative;
 }
 .sugar{ 
     background: white;
@@ -202,6 +214,7 @@
     justify-content: center;
     align-items: flex-end;
     padding-bottom: 8px;
+    position: relative;
 }
 .noSugar{
     width: 150px;
@@ -238,7 +251,6 @@
 /* .noSugar{
     width: 230px;
     height: 120px;
-    position: relative;
     margin-left: 80px;
 } */
 /* .noSugar > img {
@@ -254,7 +266,6 @@
 /* .moreSugar{
     width: 260px;
     height: 140px;
-    position: relative;
     margin-left: 30px;
 }
 .moreSugar > img {
@@ -319,4 +330,43 @@
 .SaSp-arrow{
     width: 40px;
     opacity: 0.45;
+}
+
+.check {
+    position: absolute;
+    right: 20%;
+    bottom: 5%;
+    width: 35px;
+    animation: pop .3s;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      45% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      80% {
+        transform: scale(0.95);
+      }
+      100% {
+        transform: scale(1);
+      }
+}
+
+.complete {
+    background: #10B981;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+}
+
+.complete:hover {
+    background: #34D399;
 }

@@ -7,7 +7,9 @@ import brownie from "../../img/brownie.png"
 import banana from "../../img/banana-slice.png"
 import cereal from "../../img/cereal.png"
 
-function Display({ size, topping }) {
+import cow from "../../img/cow.png"
+
+function Display({ size, topping, milk }) {
   const SIZE_PROPS = [undefined, "s", "l"]
   const TOPPING_PROPS = [undefined, "brownie", "banana", "cereal"]
 
@@ -19,7 +21,7 @@ function Display({ size, topping }) {
 
   return (
     <div className="container">
-      <div className={`cup ${size}`}>
+      <div className={`cup ${size || "s"}`}>
         <img className="base" src={base} alt="base" />
         <img className="base cover" src={cover} alt="cover" />
         {/* Ice-cream size */}
@@ -52,6 +54,8 @@ function Display({ size, topping }) {
             </>
           )}
         </div>
+        {/* Cow */}
+        {milk && <img className="base cow" src={cow} alt="cow" />}
       </div>
     </div>
   )

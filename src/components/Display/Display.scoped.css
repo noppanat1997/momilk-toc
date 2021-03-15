@@ -109,3 +109,12 @@
 .topping > .banana {
     top: 65%;
 }
+
+
+/* 
+    ======  COW  ======
+*/
+.cow {
+    top: 30%;
+    width: 50%;
+}
