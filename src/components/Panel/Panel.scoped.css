@@ -36,11 +36,14 @@
 }
 .topic{
     width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: center;
+    height: 50px;
+    text-align: center;
     font-size: 35px;
     margin-top: 10px;
+}
+.descript{
+    text-align: center;
+    font-size: 20px;
 }
 .size{
     background: white;
@@ -51,46 +54,48 @@
     justify-content: center;
     align-items: center;
 }
+.size-s{
+    width: 179px;
+    height: 100%;
+    transition: 0.2s;
+}
+.size-s:hover{
+    background: rgb(228, 228, 228);
+    border-radius: 5%;
+}
+.size-l{
+    width: 179px;
+    height: 100%;
+    transition: 0.2s;
+}
+.size-l:hover{
+    background: rgb(228, 228, 228);
+    border-radius: 5%;
+}
 .base{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
 }
 .base-s{
-    width: 110px;
-    height: 88px;
-    margin-left: 40px;
-}
-.base-s:hover{
-    background: rgb(228, 228, 228);
-}
-.base-m{
-    width: 127px;
-    height: 105px;
-    margin-left: 30px;
-}
-.base-m:hover{
-    background: rgb(228, 228, 228);
+    width: 179px;
+    height: 151px;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 8px;
 }
 .base-l{
     width: 179px;
     height: 151px;
-    margin-left: 20px;
-}
-.base-l:hover{
-    background: rgb(228, 228, 228);
-}
-.sizeDescript{
+    transition: 0.2s;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 100%;
-    font-size: 20px;
 }
 .topping{
     background:white;
@@ -101,24 +106,71 @@
     justify-content: center;
     align-items: center;
 }
-.topping12{
-    width: 124px;
-    height: 99px;
-    margin: 25px 20px 0 0;
-}
-.topping34{
-    width: 146px;
-    height: 110px;
-    margin-top: 25px;
-}
-.toppingDescript{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 525px;
+.brownie {
+    width: 150px;
     height: 100%;
-    font-size: 20px;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.brownie:hover{
+    background: rgb(228, 228, 228);
+    border-radius: 5%;
+}
+.toppingBrownie{
+    width: 150px;
+    height: 100px;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 8px;
+}
+.banana {
+    width: 150px;
+    height: 100%;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.banana:hover{
+    background: rgb(228, 228, 228);
+    border-radius: 5%;
+}
+.toppingBanana{
+    width: 150px;
+    height: 100px;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 8px;
+}
+.cereal {
+    width: 150px;
+    height: 100%;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cereal:hover{
+    background: rgb(228, 228, 228);
+    border-radius: 5%;
+}
+.toppingCereal{
+    width: 150px;
+    height: 100px;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 8px;
 }
 .sugar{ 
     background: white;
@@ -129,30 +181,77 @@
     justify-content: center;
     align-items: center;
 }
-.lessSugar{
-    width: 162px;
-    height: 131px;
-    position: relative;
-    top: 10%;
-    margin-left: 70px;
-}
 .normalSugar{
+    width: 150px;
+    height: 100%;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.normalSugar:hover{
+    background: rgb(228, 228, 228);
+    border-radius: 5%;
+}
+.normalPic{
+    width: 150px;
+    height: 100px;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 8px;
+}
+.noSugar{
+    width: 150px;
+    height: 100%;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.noSugar:hover{
+    background: rgb(228, 228, 228);
+    border-radius: 5%;
+}
+.noSugarPic{
+    width: 150px;
+    height: 100px;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    position: relative;
+}
+.noSugarPic > img {
+    position: absolute;
+}
+.noSugarPic > :first-child {
+    top: 0%;
+}
+.noSugarPic > :nth-child(2) {
+    right: 15%;
+}
+/* .noSugar{
     width: 230px;
     height: 120px;
     position: relative;
     margin-left: 80px;
-}
-.normalSugar > img {
+} */
+/* .noSugar > img {
     position: absolute;
 }
-.normalSugar > :first-child {
+.noSugar > :first-child {
     bottom: -10%;
     left: 10%;
 }
-.normalSugar > :nth-child(2) {
+.noSugar > :nth-child(2) {
     right: 30%;
-}
-.moreSugar{
+} */
+/* .moreSugar{
     width: 260px;
     height: 140px;
     position: relative;
@@ -173,7 +272,7 @@
 .moreSugar > :nth-child(3) {
     top: 15%;
     left: 30%;
-}
+} */
 .sugarDescript{
     display: flex;
     flex-direction: row;
@@ -183,7 +282,7 @@
     height: 100%;
     font-size: 20px;
 }
-.pay{
+/* .pay{
     background: white;
     width: 100%;
     height: 100%;
@@ -215,7 +314,7 @@
     width: 500px;
     height: 100%;
     font-size: 20px;
-}
+} */
 
 .SaSp-arrow{
     width: 40px;

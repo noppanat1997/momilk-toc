@@ -138,6 +138,22 @@ export function initDiagram() {
       { toArrow: "standard" },
       new go.Binding("stroke", "color"),
       new go.Binding("fill", "color")
+    ),
+
+    $(
+      go.TextBlock,
+      {
+        segmentIndex: NaN,
+        segmentFraction: 0.8,
+        segmentOffset: new go.Point(0, -15),
+        textAlign: "center",
+        font: "9pt Prompt, arial, sans-serif",
+        margin: 4,
+        stroke: "DimGrey",
+      },
+      // editing the text automatically updates the model data
+      new go.Binding("text").makeTwoWay(),
+      new go.Binding("visible")
     )
   )
 
