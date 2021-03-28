@@ -1,14 +1,14 @@
 .page {
-  background: white;
+  background: #8ADDFF;
   min-height: 100vh;
   display: grid;
   grid-template-areas:
-    "top    top     top"
+    "state  state   display"
     "state  state   display"
     "tape   tape    tape"
     "panel  panel   panel";
-  grid-template-rows: 80px auto 80px 250px;
-  background: LemonChiffon;
+  grid-template-rows: 80px auto 80px 300px;
+  background: linear-gradient(-60deg, #7DD3FC, #BAE6FD);
   overflow: hidden;
 }
 
@@ -16,13 +16,18 @@
   grid-area: top;
   z-index: 30;
   pointer-events: none;
-  width: 100vw;
   user-select: none;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: #333031;
+  padding: 0 2rem;
 }
 
 .state {
   grid-area: state;
-  background: LemonChiffon;
 }
 
 .tape-wrapper {
@@ -35,40 +40,71 @@
 }
 
 .tape {
-  width: 95%;
+  margin: 0 2rem;
+  width: 100%;
   height: 50px;
   border-radius: 50px;
   background-color: white;
-  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   z-index: 21;
   overflow: hidden;
 }
 
 .display {
   grid-area: 2 / 3 / 4 / 4;
-  background: LemonChiffon;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .panel {
   grid-area: panel;
   background: white;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .cp {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     position: absolute;
-    width: 240px;
-    height: 240px;
-    background: url('/src/img/logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    top: 20px;
-    left: -25px;
+    width: 430px;
+    height: 430px;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 50%;
     z-index: 31;
     cursor: pointer;
 }
 
+.cp div {
+    position: absolute;
+    top: 61%;
+    left: 48%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.1rem;
+    color: #333031;
+    transform: rotate(-45deg);
+}
+
+.cp div:hover {
+    color: #F43F5E;
+}
+
+.cp h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cp p {
+    font-size: 24px;
+}
 
 .member {
     position: absolute;
@@ -100,4 +136,50 @@
     flex-direction: column;
     font-size: 1.25rem;
     line-height: 150%;
+}
+
+.member-logo {
+    position: absolute;
+    max-width: 300px;
+    top: 10%;
+    left: 98%;
+    transform: translate(-50%, -50%);
+}
+
+.showpath-btn {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
+  width: 200px;
+  height: 60px;
+  color: #F43F5E;
+  background-color: #FFE4E6;
+  border: 3px solid #F43F5E;
+  border-radius: 1rem;
+  padding: 0 15px;
+  box-sizing: border-box;
+  cursor: default;
+  user-select: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: .2s;
+  outline: none;
+}
+
+.showpath-btn:hover {
+    background: #FECDD3;
+}
+
+.active:hover {
+    
+    background: #E11D48;
+}
+
+.active {
+    color: white;
+    border: none;
+    background-color: #F43F5E;
 }

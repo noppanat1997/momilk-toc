@@ -154,6 +154,7 @@ export function initDiagram() {
     go.Link, // the whole link panel
     new go.Binding("points").makeTwoWay(),
     new go.Binding("zOrder"),
+    new go.Binding("visible", "visibleLink"),
     { routing: go.Link.AvoidsNodes, corner: 30 },
     $(
       go.Shape, // the link shape
@@ -179,7 +180,7 @@ export function initDiagram() {
       },
       // editing the text automatically updates the model data
       new go.Binding("text").makeTwoWay(),
-      new go.Binding("visible")
+      new go.Binding("visible", "visibleText")
     )
   )
 

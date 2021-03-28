@@ -7,7 +7,7 @@ function InputTape({ data, setData, onReset }) {
   const scrollef = useHorizontalScroll()
 
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <div className="scrollable-tape" id="scrollable-tape" ref={scrollef}>
         {data.map((text, index) => {
           return (
@@ -40,7 +40,7 @@ function InputTape({ data, setData, onReset }) {
         </svg>
         รีเซ็ต
       </button>
-    </>
+    </div>
   )
 }
 

@@ -245,7 +245,7 @@ function Panel({ addInput, display, setDisplay, updateQueryString }) {
       </div>
       <Modal modal={modal}>
         <div className="modal-text">
-          <div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <Display {...display} />
           </div>
           <div style={{ fontSize: "1.5rem", marginTop: "2rem" }}>เมนูของคุณคือ</div>

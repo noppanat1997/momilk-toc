@@ -50,40 +50,40 @@ function StateChart() {
   }, [location.search])
 
   const updatedNodeDataHandler = (queryObject) => {
-    Object.keys(queryObject).forEach((key) => {
-      const updatedNodeData = INITIAL_STATE_DATA.nodeDataArray.map((node) => {
-        /**
-         * found node value equal to query
-         */
-        if (node.value === queryObject[key]) {
-          const updatedLinkData = INITIAL_STATE_DATA.linkDataArray.map((link) => {
-            if (link.from === node.key) {
-              return {
-                ...link,
-                color: "DimGrey",
-                visible: true,
-                zOrder: 99,
-              }
-            } else {
-              return link
+    const updatedNodeData = INITIAL_STATE_DATA.nodeDataArray.map((node) => {
+      /**
+       * found node value equal to query
+       */
+      if (node.value === queryObject["current"]) {
+        const updatedLinkData = INITIAL_STATE_DATA.linkDataArray.map((link) => {
+          if (link.from === node.key) {
+            return {
+              ...link,
+              color: "DimGrey",
+              visibleText: true,
+              zOrder: 99,
             }
-          })
-
-          updatedLinkData[0].color = "white"
-          setLinkData(updatedLinkData)
-
-          setFocusKey(node.key)
-
-          return {
-            ...node,
-            fill: "#42929D",
+          } else {
+            return queryObject.show
+              ? { ...link, visibleLink: true }
+              : { ...link, visibleLink: false }
           }
-        } else {
-          return node
+        })
+
+        updatedLinkData[0].color = "white"
+        setLinkData(updatedLinkData)
+
+        setFocusKey(node.key)
+
+        return {
+          ...node,
+          fill: "#F43F5E",
         }
-      })
-      setNodeData(updatedNodeData)
+      } else {
+        return node
+      }
     })
+    setNodeData(updatedNodeData)
   }
 
   return (
