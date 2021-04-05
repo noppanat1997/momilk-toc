@@ -47,6 +47,7 @@ function StateChart() {
     }
 
     forceUpdate()
+    // eslint-disable-next-line
   }, [location.search])
 
   const updatedNodeDataHandler = (queryObject) => {
