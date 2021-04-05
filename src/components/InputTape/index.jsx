@@ -1,9 +1,7 @@
 import "./InputTape.scoped.css"
 import { useHorizontalScroll } from "./useHorizontalScroll"
-import { useHistory } from "react-router-dom"
 
 function InputTape({ data, setData, onReset }) {
-  const history = useHistory()
   const scrollef = useHorizontalScroll()
 
   return (
